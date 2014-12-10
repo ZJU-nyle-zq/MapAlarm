@@ -12,7 +12,13 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *celsiusLable;
 @property (strong, nonatomic) IBOutlet UILabel *locationLable;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UIImageView *buttonLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *buttonRight;
+@property (strong, nonatomic) IBOutlet UIView *mySheduleHolder;
+@property (strong, nonatomic) IBOutlet UIView *busAlarmCliockHolder;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property NSArray *images;
+@property long status;
 @end
 

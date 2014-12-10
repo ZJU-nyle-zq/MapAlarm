@@ -17,6 +17,12 @@
 		FF59B3FE1A37D9FD00353F8E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B3FC1A37D9FD00353F8E /* bg.png */; };
 		FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B3FD1A37D9FD00353F8E /* weather_background.png */; };
 		FF59B4011A37F20F00353F8E /* weather_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4001A37F20F00353F8E /* weather_cloud.png */; };
+		FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */; };
+		FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4031A385AD000353F8E /* shedule_button_pressed.png */; };
+		FF59B4081A387D4D00353F8E /* bus_alarm_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */; };
+		FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4071A387D4D00353F8E /* shedule_button_normal.png */; };
+		FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */; };
+		FF59B40D1A388D1600353F8E /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40C1A388D1600353F8E /* setting.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,12 @@
 		FF59B3FC1A37D9FD00353F8E /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		FF59B3FD1A37D9FD00353F8E /* weather_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_background.png; sourceTree = "<group>"; };
 		FF59B4001A37F20F00353F8E /* weather_cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_cloud.png; sourceTree = "<group>"; };
+		FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_alarm_button_normal.png; sourceTree = "<group>"; };
+		FF59B4031A385AD000353F8E /* shedule_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_button_pressed.png; sourceTree = "<group>"; };
+		FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_alarm_button_pressed.png; sourceTree = "<group>"; };
+		FF59B4071A387D4D00353F8E /* shedule_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_button_normal.png; sourceTree = "<group>"; };
+		FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_table_backgound.png; sourceTree = "<group>"; };
+		FF59B40C1A388D1600353F8E /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +141,12 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF59B40C1A388D1600353F8E /* setting.png */,
+				FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */,
+				FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */,
+				FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */,
+				FF59B4071A387D4D00353F8E /* shedule_button_normal.png */,
+				FF59B4031A385AD000353F8E /* shedule_button_pressed.png */,
 				FF59B4001A37F20F00353F8E /* weather_cloud.png */,
 				FF59B3FC1A37D9FD00353F8E /* bg.png */,
 				FF59B3FD1A37D9FD00353F8E /* weather_background.png */,
@@ -216,12 +234,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
+				FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */,
+				FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */,
 				FF59B3E11A37D9C700353F8E /* Main.storyboard in Resources */,
 				FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */,
 				FF59B3E61A37D9C700353F8E /* LaunchScreen.xib in Resources */,
 				FF59B3FE1A37D9FD00353F8E /* bg.png in Resources */,
 				FF59B4011A37F20F00353F8E /* weather_cloud.png in Resources */,
+				FF59B40D1A388D1600353F8E /* setting.png in Resources */,
 				FF59B3E31A37D9C700353F8E /* Images.xcassets in Resources */,
+				FF59B4081A387D4D00353F8E /* bus_alarm_button_pressed.png in Resources */,
+				FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
