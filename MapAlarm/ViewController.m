@@ -16,7 +16,12 @@
 
 @implementation ViewController
 
-@synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder ,images, status, scrollView;
+@synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder, status , _timer;
+
+@synthesize yearShow, monthShow, dayShow, timeShow;
+
+@synthesize week1, week2, week3, week4, week5, week6, week7;
+@synthesize day1, day2, day3, day4, day5, day6, day7;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +30,10 @@
     
     celsiusLable.font = [UIFont fontWithName:@"Avenir-LightOblique" size:21];
     locationLable.font = [UIFont fontWithName:@"Baskerville-Italic" size:16];
+    [self renderWeekDayFont:@"STHeitiSC-Medium"];
+    
+    [self renderDate];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(renderDate) userInfo:nil repeats:YES];
     
     mySheduleHolder.hidden = false;
     busAlarmCliockHolder.hidden = true;
@@ -36,12 +45,6 @@
     buttonRight.userInteractionEnabled = true;
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickRightButton:)];
     [buttonRight addGestureRecognizer:singleTap2];
-    
-    scrollView.contentSize = CGSizeMake(320, 300);
-    
-    UIImage * image1 = [UIImage imageNamed:@"shedule_button_pressed.png"];
-    UIImage * image2 = [UIImage imageNamed:@"bus_alarm_button_normal.png"];
-    images = [[NSArray alloc] initWithObjects:image1, image2, nil];
 }
 
 - (void)clickLeftButton:(UIGestureRecognizer *)gestureRecognizer
@@ -64,6 +67,93 @@
         mySheduleHolder.hidden = true;
         busAlarmCliockHolder.hidden = false;
     }
+}
+
+-(void)renderDate
+{
+    
+    NSArray * arrMonth=[NSArray arrayWithObjects:@"January", @"February" ,@"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December", nil];
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear|
+    NSCalendarUnitMonth |
+    NSCalendarUnitDay |
+    NSCalendarUnitWeekday |
+    NSCalendarUnitHour |
+    NSCalendarUnitMinute |
+    NSCalendarUnitSecond;
+    comps = [calendar components:unitFlags fromDate:date];
+    long year=[comps year];
+    long month = [comps month];
+    long day = [comps day];
+    long hour = [comps hour];
+    long minute = [comps minute];
+    
+    yearShow.text = [NSString stringWithFormat:@"%4ld", year];
+    monthShow.text = [NSString stringWithFormat:@"%@", [arrMonth objectAtIndex:(month-1)]];
+    dayShow.text = [NSString stringWithFormat:@"%2ld",day];
+    
+    if (hour >= 12)
+    {
+        NSString *tmp = hour - 12 > 9 ? @"" : @"0";
+        tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld:", hour - 12]];
+        if (minute <= 9) {
+            tmp = [tmp stringByAppendingString:@"0"];
+        }
+        tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld PM", minute]];
+        
+        timeShow.text = tmp;
+    }
+    else
+    {
+        NSString *tmp = hour > 9 ? @"" : @"0";
+        tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld:", hour]];
+        if (minute <= 9) {
+            tmp = [tmp stringByAppendingString:@"0"];
+        }
+        tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld PM", minute]];
+        timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
+    }
+    
+    [self setWeekDayInfo:week1 :day1 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+0*3600*24]]];
+    [self setWeekDayInfo:week2 :day2 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+1*3600*24]]];
+    [self setWeekDayInfo:week3 :day3 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+2*3600*24]]];
+    [self setWeekDayInfo:week4 :day4 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+3*3600*24]]];
+    [self setWeekDayInfo:week5 :day5 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+4*3600*24]]];
+    [self setWeekDayInfo:week6 :day6 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+2*3600*24]]];
+    [self setWeekDayInfo:week7 :day7 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+3*3600*24]]];
+}
+
+-(void)setWeekDayInfo:(UILabel*)weekShow :(UILabel*)dayShowLable :(NSDateComponents *)comps
+{
+    
+    NSArray * arrWeek=[NSArray arrayWithObjects:@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat", nil];
+    long week = [comps weekday];
+    long day = [comps day];
+    weekShow.text = [NSString stringWithFormat:@"%@",[arrWeek objectAtIndex:week%7]];
+    if(day <= 9)
+    {
+        dayShowLable.text = [NSString stringWithFormat:@"0%ld",day];
+    }
+    else
+    {
+        dayShowLable.text = [NSString stringWithFormat:@"%2ld",day];
+    }
+
+}
+
+//render
+-(void)renderWeekDayFont:(NSString*)font
+{
+    int size = 14;
+    week1.font = [UIFont fontWithName:font size:size];
+    week2.font = [UIFont fontWithName:font size:size];
+    week3.font = [UIFont fontWithName:font size:size];
+    week4.font = [UIFont fontWithName:font size:size];
+    week5.font = [UIFont fontWithName:font size:size];
+    week6.font = [UIFont fontWithName:font size:size];
+    week7.font = [UIFont fontWithName:font size:size];
 }
 
 -(UIColor*) colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alphaValue
