@@ -12,6 +12,8 @@
 		FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25C1A3D5B5600EA13D5 /* icon_add.png */; };
 		FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D25E1A3D662400EA13D5 /* MapKit.framework */; };
 		FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D2601A3D663400EA13D5 /* CoreLocation.framework */; };
+		FF58D2641A3D825400EA13D5 /* alert_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D2621A3D825400EA13D5 /* alert_sign.png */; };
+		FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D2631A3D825400EA13D5 /* bus_no_sign.png */; };
 		FF59B3D81A37D9C700353F8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3D71A37D9C700353F8E /* main.m */; };
 		FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DA1A37D9C700353F8E /* AppDelegate.m */; };
 		FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DD1A37D9C700353F8E /* ViewController.m */; };
@@ -49,6 +51,8 @@
 		FF58D25C1A3D5B5600EA13D5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
 		FF58D25E1A3D662400EA13D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FF58D2601A3D663400EA13D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FF58D2621A3D825400EA13D5 /* alert_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alert_sign.png; path = "../../../Desktop/UI/其他素材/alert_sign.png"; sourceTree = "<group>"; };
+		FF58D2631A3D825400EA13D5 /* bus_no_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bus_no_sign.png; path = "../../../Desktop/UI/其他素材/bus_no_sign.png"; sourceTree = "<group>"; };
 		FF59B3D21A37D9C700353F8E /* MapAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF59B3D61A37D9C700353F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF59B3D71A37D9C700353F8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF58D2621A3D825400EA13D5 /* alert_sign.png */,
+				FF58D2631A3D825400EA13D5 /* bus_no_sign.png */,
 				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
 				FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */,
 				FF7511961A39375400821DA4 /* today_sign.png */,
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
+				FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */,
 				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
 				FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */,
 				FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */,
@@ -286,6 +293,7 @@
 				FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */,
 				FF59B3E61A37D9C700353F8E /* LaunchScreen.xib in Resources */,
 				FF59B3FE1A37D9FD00353F8E /* bg.png in Resources */,
+				FF58D2641A3D825400EA13D5 /* alert_sign.png in Resources */,
 				FF59B4011A37F20F00353F8E /* weather_cloud.png in Resources */,
 				FF7511971A39375400821DA4 /* today_sign.png in Resources */,
 				FF59B40D1A388D1600353F8E /* setting.png in Resources */,

@@ -30,12 +30,12 @@
     [super setHighlighted:highlighted animated:animated];
     if (highlighted == YES)
     {
-        NSLog(@"这个地方是按下时会调到得地方");
+//        NSLog(@"这个地方是按下时会调到得地方");
         //        self.textLabel.textColor = Selected_Frame_Color;
         [self.textLabel setHighlighted:YES];
         [self.imageView setHighlighted:YES];
     }else{
-        NSLog(@"这个地方是抬起手指时会调到得地方");
+//        NSLog(@"这个地方是抬起手指时会调到得地方");
         //        self.textLabel.textColor = [UIColor whiteColor];
         [self.textLabel setHighlighted:NO];
         [self.imageView setHighlighted:NO];
