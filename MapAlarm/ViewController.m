@@ -27,8 +27,16 @@
 
 @synthesize _sheduleShowList;
 
+@synthesize sheduleMap = _sheduleMap;
+@synthesize _locationManager;
+
+@synthesize _scopeBtn, _pickerView, _pickViewHolder, startBusAlarmBtn = _startBusAlarmBtn, startBusAlarmBtnBackground = _startBusAlarmBtnBackground;
+@synthesize _pickerArray, ifBusAlarmOn = _ifBusAlarmOn;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _pickerArray = [NSArray arrayWithObjects:@"100m", @"200m", @"300m", @"500m", @"1000m", @"2000m", @"5000m", nil];
     
     status = STATUS_SCHEDULE;
     
@@ -36,8 +44,6 @@
     locationLable.font = [UIFont fontWithName:@"Baskerville-Italic" size:16];
     [self renderWeekDayFont:@"STHeitiSC-Medium"];
     [self renderDate];
-    
-    [self getSheduleList];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(renderDate) userInfo:nil repeats:YES];
     
@@ -51,8 +57,48 @@
     buttonRight.userInteractionEnabled = true;
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickRightButton:)];
     [buttonRight addGestureRecognizer:singleTap2];
+    
+    [self getSheduleList];
+    
+    [self initMap];
+    [self initBusAlertHolder];
 }
 
+- (void) initBusAlertHolder
+{
+    _ifBusAlarmOn = false;
+    [_scopeBtn addTarget:self action:@selector(ClickScopeChooseBtn) forControlEvents:UIControlEventTouchUpInside];
+    [_startBusAlarmBtn addTarget:self action:@selector(clickStartBusAlarmBtn) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) initMap
+{
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    [_locationManager requestWhenInUseAuthorization];
+    [_locationManager startUpdatingLocation];
+    
+    _sheduleMap.delegate = self;
+    
+    _sheduleMap.showsUserLocation = YES;
+    _sheduleMap.mapType = MKMapTypeStandard;
+
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(39.949227,116.395555);
+    float zoomLevel = 0.02;
+    MKCoordinateRegion region = MKCoordinateRegionMake(coords, MKCoordinateSpanMake(zoomLevel, zoomLevel));
+    [_sheduleMap setRegion:region animated:YES];
+    
+
+    _busAlarmMap.delegate = self;
+    
+    _busAlarmMap.showsUserLocation = YES;
+    _busAlarmMap.mapType = MKMapTypeStandard;
+    
+    [_busAlarmMap setRegion:region animated:YES];
+}
+
+// will do
+// get the shedule list
 - (void) getSheduleList
 {
     _sheduleShowList = [[NSMutableArray alloc] init];
@@ -64,55 +110,6 @@
     }
     
     [_tableview reloadData];
-}
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _sheduleShowList.count + 1;
-}
-
-// render table view cell
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *SheduleCellIdentifier = @"sheduleCell";
-    static NSString *ShedukeAddCellIdentifier = @"sheduleAddCell";
-
-    if (indexPath.row == _sheduleShowList.count)
-    {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             ShedukeAddCellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ShedukeAddCellIdentifier];
-        }
-        UILabel *addEventLable = (UILabel *)[cell viewWithTag:213];
-        addEventLable.font = [UIFont fontWithName:@"Arial-ItalicMT" size:13];
-        return cell;
-    }
-    else
-    {
-        SheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             SheduleCellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[SheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SheduleCellIdentifier];
-        }
-        
-        Alarm *alarm = _sheduleShowList[indexPath.row];
-        cell.eventLable.text = alarm.event;
-        return cell;
-    }
-}
-
-- ( NSInteger )numberOfSectionsInTableView:( UITableView  *)tableView
-{
-    return 1;
-}
-
-// click table view cell
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"点击%ld", (long)indexPath.row);
 }
 
 // click "My Shedule"
@@ -238,4 +235,140 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [_locationManager stopUpdatingLocation];
+    NSString *strLat1 = [NSString stringWithFormat:@"%.4f",newLocation.coordinate.latitude];
+    NSString *strLng1 = [NSString stringWithFormat:@"%.4f",newLocation.coordinate.longitude];
+    NSLog(@"Lat: %@  Lng: %@", strLat1, strLng1);
+    
+    
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+    float zoomLevel = 0.09;
+    MKCoordinateRegion region = MKCoordinateRegionMake(coords, MKCoordinateSpanMake(zoomLevel, zoomLevel));
+    [_sheduleMap setRegion:region animated:YES];
+    [_busAlarmMap setRegion:region animated:YES];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"locError:%@", error);
+ }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if (indexPath.row != _sheduleShowList.count)
+        {
+            [_sheduleShowList removeObjectAtIndex:[indexPath row]];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+        return _sheduleShowList.count + 1;
+}
+
+// render table view cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *SheduleCellIdentifier = @"sheduleCell";
+    static NSString *ShedukeAddCellIdentifier = @"sheduleAddCell";
+    
+    if (indexPath.row == _sheduleShowList.count)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                                 ShedukeAddCellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ShedukeAddCellIdentifier];
+        }
+        UILabel *addEventLable = (UILabel *)[cell viewWithTag:213];
+        addEventLable.font = [UIFont fontWithName:@"Arial-ItalicMT" size:13];
+        return cell;
+    }
+    else
+    {
+        SheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             SheduleCellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[SheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SheduleCellIdentifier];
+        }
+        
+        Alarm *alarm = _sheduleShowList[indexPath.row];
+        cell.eventLable.text = alarm.event;
+        return cell;
+    }
+}
+
+- ( NSInteger )numberOfSectionsInTableView:( UITableView  *)tableView
+{
+    return 1;
+}
+
+// will do
+// click table view cell
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"点击%ld", (long)indexPath.row);
+    [_locationManager startUpdatingLocation];
+}
+
+- (void) ClickScopeChooseBtn
+{
+    [self showPickerView];
+}
+
+- (void) clickStartBusAlarmBtn
+{
+    if (_ifBusAlarmOn) {
+        [_startBusAlarmBtnBackground setBackgroundColor:[self colorWithHex:0xcccccc alpha:0.4]];
+        [_startBusAlarmBtn setTitle:@"Start" forState:UIControlStateNormal];
+        _ifBusAlarmOn = !_ifBusAlarmOn;
+    }
+    else{
+        [_startBusAlarmBtnBackground setBackgroundColor:[self colorWithHex:0xFF0033 alpha:0.8]];
+        [_startBusAlarmBtn setTitle:@"Stop" forState:UIControlStateNormal];
+        _ifBusAlarmOn = !_ifBusAlarmOn;
+    }
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [_pickerArray count];
+}
+
+-(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [_pickerArray objectAtIndex:row];
+}
+
+- (IBAction)clickCanclePickerView:(id)sender
+{
+    [self hidePickerView];
+}
+
+- (IBAction)clickChooseCancle:(id)sender
+{
+    [self hidePickerView];
+     NSInteger row = [_pickerView selectedRowInComponent:0];
+    [_scopeBtn setTitle:[_pickerArray objectAtIndex:row] forState:UIControlStateNormal];
+    [_scopeBtn setTitleColor:[self colorWithHex:0xffffff alpha:1] forState:UIControlStateNormal];
+    
+}
+
+- (void) hidePickerView
+{
+    _pickViewHolder.hidden = true;
+}
+
+- (void) showPickerView
+{
+    _pickViewHolder.hidden = false;
+}
 @end
