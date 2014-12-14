@@ -7,12 +7,45 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *celsiusLable;
 @property (strong, nonatomic) IBOutlet UILabel *locationLable;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UIImageView *buttonLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *buttonRight;
+@property (strong, nonatomic) IBOutlet UIView *mySheduleHolder;
+@property (strong, nonatomic) IBOutlet UIView *busAlarmCliockHolder;
 
+@property (strong, nonatomic) IBOutlet UILabel *yearShow;
+@property (strong, nonatomic) IBOutlet UILabel *monthShow;
+@property (strong, nonatomic) IBOutlet UILabel *dayShow;
+@property (strong, nonatomic) IBOutlet UILabel *timeShow;
+
+@property (strong, nonatomic) IBOutlet UILabel *week1;
+@property (strong, nonatomic) IBOutlet UILabel *week2;
+@property (strong, nonatomic) IBOutlet UILabel *week3;
+@property (strong, nonatomic) IBOutlet UILabel *week4;
+@property (strong, nonatomic) IBOutlet UILabel *week5;
+@property (strong, nonatomic) IBOutlet UILabel *week6;
+@property (strong, nonatomic) IBOutlet UILabel *week7;
+
+@property (strong, nonatomic) IBOutlet UILabel *day1;
+@property (strong, nonatomic) IBOutlet UILabel *day2;
+@property (strong, nonatomic) IBOutlet UILabel *day3;
+@property (strong, nonatomic) IBOutlet UILabel *day4;
+@property (strong, nonatomic) IBOutlet UILabel *day5;
+@property (strong, nonatomic) IBOutlet UILabel *day6;
+@property (strong, nonatomic) IBOutlet UILabel *day7;
+
+@property (strong, nonatomic) IBOutlet UITableView * _tableview;
+
+@property (strong, nonatomic) IBOutlet MKMapView *sheduleMap;
+
+@property NSMutableArray * _sheduleShowList;
+@property NSTimer * _timer;
+@property long status;
 @end
 
