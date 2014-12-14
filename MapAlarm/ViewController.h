@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *celsiusLable;
 @property (strong, nonatomic) IBOutlet UILabel *locationLable;
@@ -38,6 +40,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *day6;
 @property (strong, nonatomic) IBOutlet UILabel *day7;
 
+@property (strong, nonatomic) IBOutlet UITableView * _tableview;
+
+@property (strong, nonatomic) IBOutlet MKMapView *sheduleMap;
+
+@property NSMutableArray * _sheduleShowList;
 @property NSTimer * _timer;
 @property long status;
 @end

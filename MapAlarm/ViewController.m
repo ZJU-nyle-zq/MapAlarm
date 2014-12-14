@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "SheduleCell.h"
+#import "Alarm.h"
+
 #define STATUS_SCHEDULE 0
 #define STATUS_BUS_ALARM 1
 
@@ -16,12 +19,13 @@
 
 @implementation ViewController
 
-@synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder, status , _timer;
+@synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder, status , _timer, _tableview;
 
 @synthesize yearShow, monthShow, dayShow, timeShow;
-
 @synthesize week1, week2, week3, week4, week5, week6, week7;
 @synthesize day1, day2, day3, day4, day5, day6, day7;
+
+@synthesize _sheduleShowList;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,8 +35,10 @@
     celsiusLable.font = [UIFont fontWithName:@"Avenir-LightOblique" size:21];
     locationLable.font = [UIFont fontWithName:@"Baskerville-Italic" size:16];
     [self renderWeekDayFont:@"STHeitiSC-Medium"];
-    
     [self renderDate];
+    
+    [self getSheduleList];
+    
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(renderDate) userInfo:nil repeats:YES];
     
     mySheduleHolder.hidden = false;
@@ -45,6 +51,66 @@
     buttonRight.userInteractionEnabled = true;
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickRightButton:)];
     [buttonRight addGestureRecognizer:singleTap2];
+}
+
+- (void) getSheduleList
+{
+    _sheduleShowList = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 5; i ++)
+    {
+        Alarm * alarm = [[Alarm alloc] init];
+        alarm.event = [[NSString alloc] initWithString:[NSString stringWithFormat:@"Meeting with Dobe%i", i]];
+        [_sheduleShowList addObject:alarm];
+    }
+    
+    [_tableview reloadData];
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _sheduleShowList.count + 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *SheduleCellIdentifier = @"sheduleCell";
+    static NSString *ShedukeAddCellIdentifier = @"sheduleAddCell";
+
+    if (indexPath.row == _sheduleShowList.count)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             ShedukeAddCellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ShedukeAddCellIdentifier];
+        }
+        UILabel *addEventLable = (UILabel *)[cell viewWithTag:213];
+        addEventLable.font = [UIFont fontWithName:@"Arial-ItalicMT" size:13];
+        return cell;
+    }
+    else
+    {
+        SheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             SheduleCellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[SheduleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SheduleCellIdentifier];
+        }
+        
+        Alarm *alarm = _sheduleShowList[indexPath.row];
+        cell.eventLable.text = alarm.event;
+        return cell;
+    }
+}
+
+- ( NSInteger )numberOfSectionsInTableView:( UITableView  *)tableView
+{
+    return 1;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"点击%ld", (long)indexPath.row);
 }
 
 - (void)clickLeftButton:(UIGestureRecognizer *)gestureRecognizer
@@ -143,7 +209,7 @@
 
 }
 
-//render
+//render weekDay Font
 -(void)renderWeekDayFont:(NSString*)font
 {
     int size = 14;

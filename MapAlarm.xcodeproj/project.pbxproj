@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */; };
+		FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */; };
+		FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25C1A3D5B5600EA13D5 /* icon_add.png */; };
+		FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D25E1A3D662400EA13D5 /* MapKit.framework */; };
+		FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D2601A3D663400EA13D5 /* CoreLocation.framework */; };
 		FF59B3D81A37D9C700353F8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3D71A37D9C700353F8E /* main.m */; };
 		FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DA1A37D9C700353F8E /* AppDelegate.m */; };
 		FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DD1A37D9C700353F8E /* ViewController.m */; };
@@ -38,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheduleCell.h; sourceTree = "<group>"; };
+		FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheduleCell.m; sourceTree = "<group>"; };
+		FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_sign.png; sourceTree = "<group>"; };
+		FF58D25C1A3D5B5600EA13D5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
+		FF58D25E1A3D662400EA13D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FF58D2601A3D663400EA13D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF59B3D21A37D9C700353F8E /* MapAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF59B3D61A37D9C700353F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF59B3D71A37D9C700353F8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
+				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +96,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF58D2541A3D3A7700EA13D5 /* SheduleCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */,
+				FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */,
+			);
+			name = SheduleCell;
+			sourceTree = "<group>";
+		};
 		FF59B3C91A37D9C700353F8E = {
 			isa = PBXGroup;
 			children = (
+				FF58D2601A3D663400EA13D5 /* CoreLocation.framework */,
+				FF58D25E1A3D662400EA13D5 /* MapKit.framework */,
 				FF59B3D41A37D9C700353F8E /* MapAlarm */,
 				FF59B3EE1A37D9C700353F8E /* MapAlarmTests */,
 				FF59B3D31A37D9C700353F8E /* Products */,
@@ -104,6 +128,7 @@
 		FF59B3D41A37D9C700353F8E /* MapAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				FF58D2541A3D3A7700EA13D5 /* SheduleCell */,
 				FF7511981A398EC100821DA4 /* Alarm */,
 				FF59B3D91A37D9C700353F8E /* AppDelegate.h */,
 				FF59B3DA1A37D9C700353F8E /* AppDelegate.m */,
@@ -147,6 +172,8 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
+				FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */,
 				FF7511961A39375400821DA4 /* today_sign.png */,
 				FF59B40C1A388D1600353F8E /* setting.png */,
 				FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */,
@@ -251,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
+				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
 				FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */,
 				FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */,
+				FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */,
 				FF59B3E11A37D9C700353F8E /* Main.storyboard in Resources */,
 				FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */,
 				FF59B3E61A37D9C700353F8E /* LaunchScreen.xib in Resources */,
@@ -281,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
+				FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */,
 				FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */,
 				FF59B3D81A37D9C700353F8E /* main.m in Sources */,
 				FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */,
