@@ -71,6 +71,7 @@
     return _sheduleShowList.count + 1;
 }
 
+// render table view cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *SheduleCellIdentifier = @"sheduleCell";
@@ -108,11 +109,13 @@
     return 1;
 }
 
+// click table view cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击%ld", (long)indexPath.row);
 }
 
+// click "My Shedule"
 - (void)clickLeftButton:(UIGestureRecognizer *)gestureRecognizer
 {
     if (status == STATUS_BUS_ALARM) {
@@ -124,6 +127,7 @@
     }
 }
 
+// click "Bus alarm clock"
 - (void)clickRightButton:(UIGestureRecognizer *)gestureRecognizer
 {
     if (status == STATUS_SCHEDULE) {
