@@ -30,15 +30,15 @@
     
     NSInteger Index = Seg.selectedSegmentIndex;
     
-//    switch (Index)
-//    {
-//        case 0:
-//            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-//            break;
-//        case 1:
-//            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"weather_cloud"]];
-//            break;
-//    }
+    switch (Index)
+    {
+        case 0:
+            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
+            break;
+        case 1:
+            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"weather_cloud"]];
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

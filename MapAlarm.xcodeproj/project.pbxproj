@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5C5FEB21A3C3FB800871FA4 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */; };
+		A5C5FEE91A3C875A00871FA4 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */; };
+		A5C5FEEA1A3C875A00871FA4 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */; };
+		A5C5FEED1A3D444100871FA4 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */; };
 		FF59B3D81A37D9C700353F8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3D71A37D9C700353F8E /* main.m */; };
 		FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DA1A37D9C700353F8E /* AppDelegate.m */; };
 		FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DD1A37D9C700353F8E /* ViewController.m */; };
@@ -30,6 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5C5FEB01A3C3FB800871FA4 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		A5C5FEE51A3C875A00871FA4 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
+		A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
+		A5C5FEE71A3C875A00871FA4 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
+		A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		A5C5FEEB1A3D444100871FA4 /* SelectedAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedAreaView.h; sourceTree = "<group>"; };
+		A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedAreaView.m; sourceTree = "<group>"; };
 		FF59B3D21A37D9C700353F8E /* MapAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF59B3D61A37D9C700353F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF59B3D71A37D9C700353F8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,11 +99,19 @@
 		FF59B3D41A37D9C700353F8E /* MapAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				A5C5FEE51A3C875A00871FA4 /* DIDatepicker.h */,
+				A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */,
+				A5C5FEE71A3C875A00871FA4 /* DIDatepickerDateView.h */,
+				A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */,
+				A5C5FEEB1A3D444100871FA4 /* SelectedAreaView.h */,
+				A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */,
 				FF59B3D91A37D9C700353F8E /* AppDelegate.h */,
 				FF59B3DA1A37D9C700353F8E /* AppDelegate.m */,
 				FF59B3DC1A37D9C700353F8E /* ViewController.h */,
 				FF59B3DD1A37D9C700353F8E /* ViewController.m */,
 				FF59B3DF1A37D9C700353F8E /* Main.storyboard */,
+				A5C5FEB01A3C3FB800871FA4 /* AddEventViewController.h */,
+				A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */,
 				FF59B3E21A37D9C700353F8E /* Images.xcassets */,
 				FF59B3E41A37D9C700353F8E /* LaunchScreen.xib */,
 				FF59B3D51A37D9C700353F8E /* Supporting Files */,
@@ -240,8 +260,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
+				A5C5FEE91A3C875A00871FA4 /* DIDatepicker.m in Sources */,
+				A5C5FEB21A3C3FB800871FA4 /* AddEventViewController.m in Sources */,
+				A5C5FEEA1A3C875A00871FA4 /* DIDatepickerDateView.m in Sources */,
 				FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */,
 				FF59B3D81A37D9C700353F8E /* main.m in Sources */,
+				A5C5FEED1A3D444100871FA4 /* SelectedAreaView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +458,7 @@
 				FF59B3F71A37D9C800353F8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF59B3F81A37D9C800353F8E /* Build configuration list for PBXNativeTarget "MapAlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +467,7 @@
 				FF59B3FA1A37D9C800353F8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

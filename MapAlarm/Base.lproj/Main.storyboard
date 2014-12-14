@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,23 +14,20 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-L9-Yxa">
-                                <rect key="frame" x="0.0" y="20" width="600" height="582"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="550"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="d21-l7-FvP">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="582"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSQ-eS-e65" userLabel="weather_holder">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" alpha="0.15000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-GE-Ese">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
-                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXw-Ks-BwE">
-                                                <rect key="frame" x="204" y="29" width="192" height="19"/>
+                                                <rect key="frame" x="64" y="29" width="192" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-wT-bsq">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="23"/>
@@ -39,13 +36,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kw-ib-tIV">
-                                                        <rect key="frame" x="167" y="-4" width="24.5" height="26.5"/>
+                                                        <rect key="frame" x="167" y="-4" width="25" height="27"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" red="0.78039215689999997" green="0.78823529410000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFw-cY-5Xk">
-                                                        <rect key="frame" x="53" y="-4" width="101" height="26.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="November" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFw-cY-5Xk">
+                                                        <rect key="frame" x="53" y="-4" width="101" height="27"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" red="0.7803921568627451" green="0.78823529411764703" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -64,10 +61,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZe-SG-l8Q">
-                                                <rect key="frame" x="160" y="62" width="280" height="52"/>
+                                                <rect key="frame" x="20" y="62" width="280" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:30 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaD-Gh-Wk2">
-                                                        <rect key="frame" x="0.0" y="10" width="124.5" height="41"/>
+                                                        <rect key="frame" x="0.0" y="10" width="125" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -80,13 +77,13 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20℃" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w04-xe-xyT">
-                                                        <rect key="frame" x="213" y="0.0" width="46.5" height="25.5"/>
+                                                        <rect key="frame" x="213" y="0.0" width="47" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singapore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra1-V4-dQM">
-                                                        <rect key="frame" x="213" y="30" width="74" height="19.5"/>
+                                                        <rect key="frame" x="213" y="30" width="74" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -110,18 +107,17 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="tZe-SG-l8Q" firstAttribute="top" secondItem="YSQ-eS-e65" secondAttribute="top" constant="62" id="2rs-uA-lCH"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q5v-GE-Ese" secondAttribute="trailing" id="3yb-On-iCJ"/>
                                             <constraint firstAttribute="centerX" secondItem="tZe-SG-l8Q" secondAttribute="centerX" id="89m-g2-xVX"/>
-                                            <constraint firstItem="Q5v-GE-Ese" firstAttribute="top" secondItem="YSQ-eS-e65" secondAttribute="top" id="Qg8-DM-llj"/>
-                                            <constraint firstAttribute="bottom" secondItem="Q5v-GE-Ese" secondAttribute="bottom" id="bwx-5y-sH4"/>
                                             <constraint firstAttribute="centerX" secondItem="MXw-Ks-BwE" secondAttribute="centerX" id="jKz-Uv-uSS"/>
-                                            <constraint firstItem="Q5v-GE-Ese" firstAttribute="leading" secondItem="YSQ-eS-e65" secondAttribute="leading" id="uzW-kN-HyO"/>
                                             <constraint firstItem="MXw-Ks-BwE" firstAttribute="top" secondItem="YSQ-eS-e65" secondAttribute="top" constant="29" id="wVd-xW-xjJ"/>
                                             <constraint firstAttribute="height" constant="130" id="z3Y-DK-05T"/>
                                         </constraints>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-BI-282">
-                                        <rect key="frame" x="0.0" y="130" width="600" height="39"/>
+                                    <imageView userInteractionEnabled="NO" alpha="0.15000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="weather_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-GE-Ese">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-BI-282">
+                                        <rect key="frame" x="9" y="130" width="302" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="jcP-OO-sZB"/>
                                         </constraints>
@@ -130,6 +126,15 @@
                                             <segment title="Second"/>
                                         </segments>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyX-dk-AbG">
+                                        <rect key="frame" x="125" y="176" width="71" height="30"/>
+                                        <state key="normal" title="Add Event">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="FGk-z9-Un0" kind="modal" id="EMl-DP-kKC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -162,6 +167,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-25" y="-260"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Gmd-WW-XPh">
+            <objects>
+                <viewController id="FGk-z9-Un0" customClass="AddEventViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gEq-Pr-cTn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kdx-ky-djw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1sV-uS-4g9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-uD-RDc">
+                                <rect key="frame" x="0.0" y="20" width="320" height="550"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erj-om-NcG" customClass="DIDatepicker">
+                                <rect key="frame" x="0.0" y="175" width="320" height="91"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Display" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waL-ex-Tbn">
+                                <rect key="frame" x="46" y="315" width="215" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="PJ6-mZ-SLJ"/>
+                    <connections>
+                        <outlet property="datepicker" destination="erj-om-NcG" id="Uuf-mR-rYb"/>
+                        <outlet property="selectedDateLabel" destination="waL-ex-Tbn" id="cyJ-M0-jP7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMT-9A-tJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="363" y="-260"/>
         </scene>
     </scenes>
     <resources>
@@ -169,4 +213,9 @@
         <image name="weather_background.png" width="644" height="267"/>
         <image name="weather_cloud.png" width="1204" height="1024"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
