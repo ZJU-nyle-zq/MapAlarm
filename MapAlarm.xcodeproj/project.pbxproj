@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5C5FEB21A3C3FB800871FA4 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */; };
-		A5C5FEE91A3C875A00871FA4 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */; };
-		A5C5FEEA1A3C875A00871FA4 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */; };
-		A5C5FEED1A3D444100871FA4 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */; };
+		A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A588A8351A3FEDA2008D7094 /* SetSchedule.m */; };
+		A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B31A3F3F750028FD99 /* DIDatepicker.m */; };
+		A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */; };
+		A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */; };
+		A5E238BD1A3F3FAC0028FD99 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */; };
+		FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */; };
+		FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */; };
+		FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25C1A3D5B5600EA13D5 /* icon_add.png */; };
+		FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D25E1A3D662400EA13D5 /* MapKit.framework */; };
+		FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D2601A3D663400EA13D5 /* CoreLocation.framework */; };
+		FF58D2641A3D825400EA13D5 /* alert_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D2621A3D825400EA13D5 /* alert_sign.png */; };
+		FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D2631A3D825400EA13D5 /* bus_no_sign.png */; };
 		FF59B3D81A37D9C700353F8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3D71A37D9C700353F8E /* main.m */; };
 		FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DA1A37D9C700353F8E /* AppDelegate.m */; };
 		FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DD1A37D9C700353F8E /* ViewController.m */; };
@@ -21,6 +29,16 @@
 		FF59B3FE1A37D9FD00353F8E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B3FC1A37D9FD00353F8E /* bg.png */; };
 		FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B3FD1A37D9FD00353F8E /* weather_background.png */; };
 		FF59B4011A37F20F00353F8E /* weather_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4001A37F20F00353F8E /* weather_cloud.png */; };
+		FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */; };
+		FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4031A385AD000353F8E /* shedule_button_pressed.png */; };
+		FF59B4081A387D4D00353F8E /* bus_alarm_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */; };
+		FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4071A387D4D00353F8E /* shedule_button_normal.png */; };
+		FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */; };
+		FF59B40D1A388D1600353F8E /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40C1A388D1600353F8E /* setting.png */; };
+		FF7511971A39375400821DA4 /* today_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7511961A39375400821DA4 /* today_sign.png */; };
+		FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75119B1A3991AF00821DA4 /* Alarm.m */; };
+		FF8458231A3F047000D27C92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458221A3F047000D27C92 /* Util.m */; };
+		FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458291A3F15D300D27C92 /* CustomAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +52,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5C5FEB01A3C3FB800871FA4 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
-		A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
-		A5C5FEE51A3C875A00871FA4 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
-		A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
-		A5C5FEE71A3C875A00871FA4 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
-		A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
-		A5C5FEEB1A3D444100871FA4 /* SelectedAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedAreaView.h; sourceTree = "<group>"; };
-		A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedAreaView.m; sourceTree = "<group>"; };
+		A588A8341A3FEDA2008D7094 /* SetSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchedule.h; sourceTree = "<group>"; };
+		A588A8351A3FEDA2008D7094 /* SetSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchedule.m; sourceTree = "<group>"; };
+		A5E238B21A3F3F750028FD99 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
+		A5E238B31A3F3F750028FD99 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
+		A5E238B41A3F3F750028FD99 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
+		A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		A5E238B61A3F3F750028FD99 /* SelectedAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedAreaView.h; sourceTree = "<group>"; };
+		A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedAreaView.m; sourceTree = "<group>"; };
+		A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheduleCell.h; sourceTree = "<group>"; };
+		FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheduleCell.m; sourceTree = "<group>"; };
+		FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_sign.png; sourceTree = "<group>"; };
+		FF58D25C1A3D5B5600EA13D5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
+		FF58D25E1A3D662400EA13D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FF58D2601A3D663400EA13D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FF58D2621A3D825400EA13D5 /* alert_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alert_sign.png; path = "../../../Desktop/UI/其他素材/alert_sign.png"; sourceTree = "<group>"; };
+		FF58D2631A3D825400EA13D5 /* bus_no_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bus_no_sign.png; path = "../../../Desktop/UI/其他素材/bus_no_sign.png"; sourceTree = "<group>"; };
 		FF59B3D21A37D9C700353F8E /* MapAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF59B3D61A37D9C700353F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF59B3D71A37D9C700353F8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +86,19 @@
 		FF59B3FC1A37D9FD00353F8E /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		FF59B3FD1A37D9FD00353F8E /* weather_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_background.png; sourceTree = "<group>"; };
 		FF59B4001A37F20F00353F8E /* weather_cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_cloud.png; sourceTree = "<group>"; };
+		FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_alarm_button_normal.png; sourceTree = "<group>"; };
+		FF59B4031A385AD000353F8E /* shedule_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_button_pressed.png; sourceTree = "<group>"; };
+		FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_alarm_button_pressed.png; sourceTree = "<group>"; };
+		FF59B4071A387D4D00353F8E /* shedule_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_button_normal.png; sourceTree = "<group>"; };
+		FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shedule_table_backgound.png; sourceTree = "<group>"; };
+		FF59B40C1A388D1600353F8E /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		FF7511961A39375400821DA4 /* today_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = today_sign.png; sourceTree = "<group>"; };
+		FF75119A1A3991AF00821DA4 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		FF75119B1A3991AF00821DA4 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		FF8458211A3F047000D27C92 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Util/Util.h; sourceTree = "<group>"; };
+		FF8458221A3F047000D27C92 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Util/Util.m; sourceTree = "<group>"; };
+		FF8458281A3F15D300D27C92 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		FF8458291A3F15D300D27C92 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
+				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +121,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5E238B11A3F3F570028FD99 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				A5E238B21A3F3F750028FD99 /* DIDatepicker.h */,
+				A5E238B31A3F3F750028FD99 /* DIDatepicker.m */,
+				A5E238B41A3F3F750028FD99 /* DIDatepickerDateView.h */,
+				A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */,
+				A5E238B61A3F3F750028FD99 /* SelectedAreaView.h */,
+				A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */,
+			);
+			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		FF58D2541A3D3A7700EA13D5 /* SheduleCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */,
+				FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */,
+			);
+			name = SheduleCell;
+			sourceTree = "<group>";
+		};
 		FF59B3C91A37D9C700353F8E = {
 			isa = PBXGroup;
 			children = (
+				FF58D2601A3D663400EA13D5 /* CoreLocation.framework */,
+				FF58D25E1A3D662400EA13D5 /* MapKit.framework */,
 				FF59B3D41A37D9C700353F8E /* MapAlarm */,
 				FF59B3EE1A37D9C700353F8E /* MapAlarmTests */,
 				FF59B3D31A37D9C700353F8E /* Products */,
@@ -99,19 +166,20 @@
 		FF59B3D41A37D9C700353F8E /* MapAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				A5C5FEE51A3C875A00871FA4 /* DIDatepicker.h */,
-				A5C5FEE61A3C875A00871FA4 /* DIDatepicker.m */,
-				A5C5FEE71A3C875A00871FA4 /* DIDatepickerDateView.h */,
-				A5C5FEE81A3C875A00871FA4 /* DIDatepickerDateView.m */,
-				A5C5FEEB1A3D444100871FA4 /* SelectedAreaView.h */,
-				A5C5FEEC1A3D444100871FA4 /* SelectedAreaView.m */,
+				A588A8341A3FEDA2008D7094 /* SetSchedule.h */,
+				A588A8351A3FEDA2008D7094 /* SetSchedule.m */,
+				A5E238B11A3F3F570028FD99 /* DatePicker */,
+				FF8458241A3F047600D27C92 /* Util */,
+				FF84581F1A3EA2B200D27C92 /* CustomAnnotation */,
+				FF58D2541A3D3A7700EA13D5 /* SheduleCell */,
+				FF7511981A398EC100821DA4 /* Alarm */,
 				FF59B3D91A37D9C700353F8E /* AppDelegate.h */,
 				FF59B3DA1A37D9C700353F8E /* AppDelegate.m */,
 				FF59B3DC1A37D9C700353F8E /* ViewController.h */,
 				FF59B3DD1A37D9C700353F8E /* ViewController.m */,
+				A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */,
+				A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */,
 				FF59B3DF1A37D9C700353F8E /* Main.storyboard */,
-				A5C5FEB01A3C3FB800871FA4 /* AddEventViewController.h */,
-				A5C5FEB11A3C3FB800871FA4 /* AddEventViewController.m */,
 				FF59B3E21A37D9C700353F8E /* Images.xcassets */,
 				FF59B3E41A37D9C700353F8E /* LaunchScreen.xib */,
 				FF59B3D51A37D9C700353F8E /* Supporting Files */,
@@ -149,11 +217,49 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FF58D2621A3D825400EA13D5 /* alert_sign.png */,
+				FF58D2631A3D825400EA13D5 /* bus_no_sign.png */,
+				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
+				FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */,
+				FF7511961A39375400821DA4 /* today_sign.png */,
+				FF59B40C1A388D1600353F8E /* setting.png */,
+				FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */,
+				FF59B4061A387D4D00353F8E /* bus_alarm_button_pressed.png */,
+				FF59B4021A385AD000353F8E /* bus_alarm_button_normal.png */,
+				FF59B4071A387D4D00353F8E /* shedule_button_normal.png */,
+				FF59B4031A385AD000353F8E /* shedule_button_pressed.png */,
 				FF59B4001A37F20F00353F8E /* weather_cloud.png */,
 				FF59B3FC1A37D9FD00353F8E /* bg.png */,
 				FF59B3FD1A37D9FD00353F8E /* weather_background.png */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		FF7511981A398EC100821DA4 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				FF75119A1A3991AF00821DA4 /* Alarm.h */,
+				FF75119B1A3991AF00821DA4 /* Alarm.m */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		FF84581F1A3EA2B200D27C92 /* CustomAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				FF8458281A3F15D300D27C92 /* CustomAnnotation.h */,
+				FF8458291A3F15D300D27C92 /* CustomAnnotation.m */,
+			);
+			name = CustomAnnotation;
+			sourceTree = "<group>";
+		};
+		FF8458241A3F047600D27C92 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FF8458211A3F047000D27C92 /* Util.h */,
+				FF8458221A3F047000D27C92 /* Util.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,12 +342,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
+				FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */,
+				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
+				FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */,
+				FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */,
+				FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */,
 				FF59B3E11A37D9C700353F8E /* Main.storyboard in Resources */,
 				FF59B3FF1A37D9FD00353F8E /* weather_background.png in Resources */,
 				FF59B3E61A37D9C700353F8E /* LaunchScreen.xib in Resources */,
 				FF59B3FE1A37D9FD00353F8E /* bg.png in Resources */,
+				FF58D2641A3D825400EA13D5 /* alert_sign.png in Resources */,
 				FF59B4011A37F20F00353F8E /* weather_cloud.png in Resources */,
+				FF7511971A39375400821DA4 /* today_sign.png in Resources */,
+				FF59B40D1A388D1600353F8E /* setting.png in Resources */,
 				FF59B3E31A37D9C700353F8E /* Images.xcassets in Resources */,
+				FF59B4081A387D4D00353F8E /* bus_alarm_button_pressed.png in Resources */,
+				FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,12 +377,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
-				A5C5FEE91A3C875A00871FA4 /* DIDatepicker.m in Sources */,
-				A5C5FEB21A3C3FB800871FA4 /* AddEventViewController.m in Sources */,
-				A5C5FEEA1A3C875A00871FA4 /* DIDatepickerDateView.m in Sources */,
+				FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */,
+				A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */,
+				A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */,
 				FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */,
+				A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */,
 				FF59B3D81A37D9C700353F8E /* main.m in Sources */,
-				A5C5FEED1A3D444100871FA4 /* SelectedAreaView.m in Sources */,
+				A5E238BD1A3F3FAC0028FD99 /* AddEventViewController.m in Sources */,
+				A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */,
+				FF8458231A3F047000D27C92 /* Util.m in Sources */,
+				FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */,
+				FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

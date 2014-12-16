@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddEventViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *Year;
+@property (strong, nonatomic) IBOutlet UILabel *Month;
 
 @end

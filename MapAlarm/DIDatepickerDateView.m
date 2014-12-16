@@ -46,19 +46,19 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     [dateFormatter setDateFormat:@"EEE"];
     NSString *dayInWeekFormattedString = [dateFormatter stringFromDate:date];
 
-    [dateFormatter setDateFormat:@"MMMM"];
-    NSString *monthFormattedString = [[dateFormatter stringFromDate:date] uppercaseString];
+    //[dateFormatter setDateFormat:@"MMMM"];
+    //NSString *monthFormattedString = [[dateFormatter stringFromDate:date] uppercaseString];
 
     NSMutableAttributedString *dateString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", [dayInWeekFormattedString uppercaseString],dayFormattedString]];
 
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:8],
-                                NSForegroundColorAttributeName: [UIColor blackColor]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(0, dayInWeekFormattedString.length)];
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
-                                NSForegroundColorAttributeName: [UIColor blackColor]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(dayInWeekFormattedString.length+1,dayFormattedString.length)];
 

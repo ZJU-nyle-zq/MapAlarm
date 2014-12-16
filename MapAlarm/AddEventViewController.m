@@ -16,18 +16,19 @@
 @end
 
 @implementation AddEventViewController
-
+@synthesize Year,Month;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     // Do any additional setup after loading the view.
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
-    //    [self.datepicker fillDatesFromCurrentDate:14];
+    [self.datepicker fillDatesFromCurrentDate:365];
     //    [self.datepicker fillCurrentWeek];
     //    [self.datepicker fillCurrentMonth];
-    [self.datepicker fillCurrentYear];
+    //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
+    [self renderDate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +43,33 @@
     
     self.selectedDateLabel.text = [formatter stringFromDate:self.datepicker.selectedDate];
 }
+
+-(void)renderDate
+{
+    
+    NSArray * arrMonth=[NSArray arrayWithObjects:@"January", @"February" ,@"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December", nil];
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear|
+    NSCalendarUnitMonth |
+    NSCalendarUnitDay |
+    NSCalendarUnitWeekday |
+    NSCalendarUnitHour |
+    NSCalendarUnitMinute |
+    NSCalendarUnitSecond;
+    comps = [calendar components:unitFlags fromDate:date];
+    long year=[comps year];
+    long month = [comps month];
+    long day = [comps day];
+    long hour = [comps hour];
+    long minute = [comps minute];
+    
+    Year.text = [NSString stringWithFormat:@"%4ld", year];
+    Month.text = [NSString stringWithFormat:@"%@", [arrMonth objectAtIndex:(month-1)]];
+    //dayShow.text = [NSString stringWithFormat:@"%2ld",day];
+    
+    }
 
 /*
 #pragma mark - Navigation
