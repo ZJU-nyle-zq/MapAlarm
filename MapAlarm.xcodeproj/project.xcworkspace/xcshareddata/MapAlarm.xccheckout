@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C6EEC137-D4FB-484C-B587-9EF60C59D690</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MapAlarm</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CB2D286EB8786C2F5652509866C76F78886BC9EC</key>
+		<string>github.com:ZJU-nyle-zq/MapAlarm.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MapAlarm.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CB2D286EB8786C2F5652509866C76F78886BC9EC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:ZJU-nyle-zq/MapAlarm.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CB2D286EB8786C2F5652509866C76F78886BC9EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CB2D286EB8786C2F5652509866C76F78886BC9EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MapAlarm</string>
+		</dict>
+	</array>
+</dict>
+</plist>
