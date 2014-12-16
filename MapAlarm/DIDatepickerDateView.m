@@ -1,7 +1,3 @@
-//
-//  Created by Dmitry Ivanenko on 15.04.14.
-//  Copyright (c) 2014 Dmitry Ivanenko. All rights reserved.
-//
 
 #import "DIDatepickerDateView.h"
 #import "SelectedAreaView.h"
@@ -52,12 +48,12 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     NSMutableAttributedString *dateString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", [dayInWeekFormattedString uppercaseString],dayFormattedString]];
 
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:8],
+                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:8],
                                 NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(0, dayInWeekFormattedString.length)];
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
+                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:20],
                                 NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(dayInWeekFormattedString.length+1,dayFormattedString.length)];
@@ -69,11 +65,11 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
                                 }
                         range:NSMakeRange(dateString.string.length - monthFormattedString.length, monthFormattedString.length)];*/
 
-    if ([self isWeekday:date]) {
+    /*if ([self isWeekday:date]) {
         [dateString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"HelveticaNeue-Medium" size:8]
+                           value:[UIFont fontWithName:@"HelveticaNeue" size:8]
                            range:NSMakeRange(0, dayInWeekFormattedString.length)];
-    }
+    }*/
 
     self.dateLabel.attributedText = dateString;
 }

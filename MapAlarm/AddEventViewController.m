@@ -12,23 +12,37 @@
 @interface AddEventViewController ()
 @property (weak, nonatomic) IBOutlet DIDatepicker *datepicker;
 @property (weak, nonatomic) IBOutlet UILabel *selectedDateLabel;
-
+@property (strong, nonatomic) IBOutlet UITextField *Event;
+@property (strong, nonatomic) IBOutlet UITextField *TimeChoose;
+@property (strong,nonatomic) UIDatePicker* ScheduleDatePicker;
 @end
 
 @implementation AddEventViewController
 @synthesize Year,Month;
+@synthesize Event=_Event;
+@synthesize TimeChoose=_TimeChoose;
+@synthesize ScheduleDatePicker=_ScheduleDatePicker;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-    // Do any additional setup after loading the view.
+    _ScheduleDatePicker=[[UIDatePicker alloc]init];
+    _ScheduleDatePicker.datePickerMode = UIDatePickerModeTime;
+    _TimeChoose.inputView = _ScheduleDatePicker;
+    // 建立一个UIToolbar
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    // 选取日期完成按钮
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self
+                                                                          action:@selector(cancelPicker)];
+    // 把按鈕加進 UIToolbar
+    toolBar.items = [NSArray arrayWithObject:right];
+    //加上按钮
+    _TimeChoose.inputAccessoryView = toolBar;
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
-    
     [self.datepicker fillDatesFromCurrentDate:365];
     //    [self.datepicker fillCurrentWeek];
     //    [self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
-    [self renderDate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,38 +53,44 @@
 - (void)updateSelectedDate
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEEddMMMM" options:0 locale:nil];
-    
+    NSDateFormatter *Yformat= [[NSDateFormatter alloc] init];
+    NSDateFormatter *Mformat=[[NSDateFormatter alloc] init];
+    Yformat.dateFormat=[NSDateFormatter dateFormatFromTemplate:@"YYYY" options:0 locale:nil];
+    Mformat.dateFormat=[NSDateFormatter dateFormatFromTemplate:@"MMMM" options:0 locale:nil];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+    Year.text=[Yformat stringFromDate:self.datepicker.selectedDate];
+    Month.text=[Mformat stringFromDate:self.datepicker.selectedDate];
     self.selectedDateLabel.text = [formatter stringFromDate:self.datepicker.selectedDate];
 }
 
--(void)renderDate
-{
-    
-    NSArray * arrMonth=[NSArray arrayWithObjects:@"January", @"February" ,@"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December", nil];
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    NSInteger unitFlags = NSCalendarUnitYear|
-    NSCalendarUnitMonth |
-    NSCalendarUnitDay |
-    NSCalendarUnitWeekday |
-    NSCalendarUnitHour |
-    NSCalendarUnitMinute |
-    NSCalendarUnitSecond;
-    comps = [calendar components:unitFlags fromDate:date];
-    long year=[comps year];
-    long month = [comps month];
-    long day = [comps day];
-    long hour = [comps hour];
-    long minute = [comps minute];
-    
-    Year.text = [NSString stringWithFormat:@"%4ld", year];
-    Month.text = [NSString stringWithFormat:@"%@", [arrMonth objectAtIndex:(month-1)]];
-    //dayShow.text = [NSString stringWithFormat:@"%2ld",day];
-    
+-(void) cancelPicker {
+    if ([self.view endEditing:NO]) {
+        //格式化输出选择结果
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm"];
+        // 添入日期结果
+        _TimeChoose.text = [NSString stringWithFormat:@"%@",[formatter stringFromDate:_ScheduleDatePicker.date]];
     }
-
+}
+- (IBAction)isClick:(UIButton *)sender {
+    if ([sender.currentTitle isEqualToString:@"On"]){
+        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+        [sender setTitle:@"Off" forState:UIControlStateNormal];
+    } else{
+        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
+        [sender setTitle:@"On" forState:UIControlStateNormal];
+    }
+}
+/*- (IBAction)isClick:(UIButton* )sender {
+    NSLog(@"Here");
+    if ([sender.currentTitle length]){
+        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+        [sender setTitle:@"off" forState:UIControlStateNormal];
+    } else{
+        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
+        [sender setTitle:@"on" forState:UIControlStateNormal];
+    }
+}*/
 /*
 #pragma mark - Navigation
 

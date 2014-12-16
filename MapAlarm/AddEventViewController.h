@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventViewController : UIViewController
+@interface AddEventViewController : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *Year;
 @property (strong, nonatomic) IBOutlet UILabel *Month;
-
+//@property (strong, nonatomic) IBOutlet UIPickerView *TimePicker;
+//@property NSArray * TimepickerArray;
 @end
