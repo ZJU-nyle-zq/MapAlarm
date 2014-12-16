@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A588A8351A3FEDA2008D7094 /* SetSchedule.m */; };
+		A588A8381A3FF682008D7094 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = A588A8371A3FF682008D7094 /* Back.png */; };
+		A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B31A3F3F750028FD99 /* DIDatepicker.m */; };
+		A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */; };
+		A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */; };
+		A5E238BD1A3F3FAC0028FD99 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */; };
 		FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */; };
 		FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */; };
 		FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25C1A3D5B5600EA13D5 /* icon_add.png */; };
@@ -32,6 +38,8 @@
 		FF59B40D1A388D1600353F8E /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40C1A388D1600353F8E /* setting.png */; };
 		FF7511971A39375400821DA4 /* today_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7511961A39375400821DA4 /* today_sign.png */; };
 		FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75119B1A3991AF00821DA4 /* Alarm.m */; };
+		FF8458231A3F047000D27C92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458221A3F047000D27C92 /* Util.m */; };
+		FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458291A3F15D300D27C92 /* CustomAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A588A8341A3FEDA2008D7094 /* SetSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchedule.h; sourceTree = "<group>"; };
+		A588A8351A3FEDA2008D7094 /* SetSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchedule.m; sourceTree = "<group>"; };
+		A588A8371A3FF682008D7094 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
+		A5E238B21A3F3F750028FD99 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
+		A5E238B31A3F3F750028FD99 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
+		A5E238B41A3F3F750028FD99 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
+		A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		A5E238B61A3F3F750028FD99 /* SelectedAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedAreaView.h; sourceTree = "<group>"; };
+		A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedAreaView.m; sourceTree = "<group>"; };
+		A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheduleCell.h; sourceTree = "<group>"; };
 		FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheduleCell.m; sourceTree = "<group>"; };
 		FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_sign.png; sourceTree = "<group>"; };
@@ -78,6 +97,10 @@
 		FF7511961A39375400821DA4 /* today_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = today_sign.png; sourceTree = "<group>"; };
 		FF75119A1A3991AF00821DA4 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
 		FF75119B1A3991AF00821DA4 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		FF8458211A3F047000D27C92 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Util/Util.h; sourceTree = "<group>"; };
+		FF8458221A3F047000D27C92 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Util/Util.m; sourceTree = "<group>"; };
+		FF8458281A3F15D300D27C92 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		FF8458291A3F15D300D27C92 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +123,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5E238B11A3F3F570028FD99 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				A5E238B21A3F3F750028FD99 /* DIDatepicker.h */,
+				A5E238B31A3F3F750028FD99 /* DIDatepicker.m */,
+				A5E238B41A3F3F750028FD99 /* DIDatepickerDateView.h */,
+				A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */,
+				A5E238B61A3F3F750028FD99 /* SelectedAreaView.h */,
+				A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */,
+			);
+			name = DatePicker;
+			sourceTree = "<group>";
+		};
 		FF58D2541A3D3A7700EA13D5 /* SheduleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,12 +168,19 @@
 		FF59B3D41A37D9C700353F8E /* MapAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				A588A8341A3FEDA2008D7094 /* SetSchedule.h */,
+				A588A8351A3FEDA2008D7094 /* SetSchedule.m */,
+				A5E238B11A3F3F570028FD99 /* DatePicker */,
+				FF8458241A3F047600D27C92 /* Util */,
+				FF84581F1A3EA2B200D27C92 /* CustomAnnotation */,
 				FF58D2541A3D3A7700EA13D5 /* SheduleCell */,
 				FF7511981A398EC100821DA4 /* Alarm */,
 				FF59B3D91A37D9C700353F8E /* AppDelegate.h */,
 				FF59B3DA1A37D9C700353F8E /* AppDelegate.m */,
 				FF59B3DC1A37D9C700353F8E /* ViewController.h */,
 				FF59B3DD1A37D9C700353F8E /* ViewController.m */,
+				A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */,
+				A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */,
 				FF59B3DF1A37D9C700353F8E /* Main.storyboard */,
 				FF59B3E21A37D9C700353F8E /* Images.xcassets */,
 				FF59B3E41A37D9C700353F8E /* LaunchScreen.xib */,
@@ -176,6 +219,7 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A588A8371A3FF682008D7094 /* Back.png */,
 				FF58D2621A3D825400EA13D5 /* alert_sign.png */,
 				FF58D2631A3D825400EA13D5 /* bus_no_sign.png */,
 				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
@@ -201,6 +245,24 @@
 				FF75119B1A3991AF00821DA4 /* Alarm.m */,
 			);
 			name = Alarm;
+			sourceTree = "<group>";
+		};
+		FF84581F1A3EA2B200D27C92 /* CustomAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				FF8458281A3F15D300D27C92 /* CustomAnnotation.h */,
+				FF8458291A3F15D300D27C92 /* CustomAnnotation.m */,
+			);
+			name = CustomAnnotation;
+			sourceTree = "<group>";
+		};
+		FF8458241A3F047600D27C92 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FF8458211A3F047000D27C92 /* Util.h */,
+				FF8458221A3F047000D27C92 /* Util.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A588A8381A3FF682008D7094 /* Back.png in Resources */,
 				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
 				FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */,
 				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
@@ -319,8 +382,15 @@
 			files = (
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
 				FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */,
+				A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */,
+				A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */,
 				FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */,
+				A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */,
 				FF59B3D81A37D9C700353F8E /* main.m in Sources */,
+				A5E238BD1A3F3FAC0028FD99 /* AddEventViewController.m in Sources */,
+				A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */,
+				FF8458231A3F047000D27C92 /* Util.m in Sources */,
+				FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */,
 				FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

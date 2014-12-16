@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "CustomAnnotation.h"
 
 @interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -23,29 +24,14 @@
 @property (strong, nonatomic) IBOutlet UILabel *yearShow;
 @property (strong, nonatomic) IBOutlet UILabel *monthShow;
 @property (strong, nonatomic) IBOutlet UILabel *dayShow;
-@property (strong, nonatomic) IBOutlet UILabel *timeShow;
-
-@property (strong, nonatomic) IBOutlet UILabel *week1;
-@property (strong, nonatomic) IBOutlet UILabel *week2;
-@property (strong, nonatomic) IBOutlet UILabel *week3;
-@property (strong, nonatomic) IBOutlet UILabel *week4;
-@property (strong, nonatomic) IBOutlet UILabel *week5;
-@property (strong, nonatomic) IBOutlet UILabel *week6;
-@property (strong, nonatomic) IBOutlet UILabel *week7;
-
-@property (strong, nonatomic) IBOutlet UILabel *day1;
-@property (strong, nonatomic) IBOutlet UILabel *day2;
-@property (strong, nonatomic) IBOutlet UILabel *day3;
-@property (strong, nonatomic) IBOutlet UILabel *day4;
-@property (strong, nonatomic) IBOutlet UILabel *day5;
-@property (strong, nonatomic) IBOutlet UILabel *day6;
-@property (strong, nonatomic) IBOutlet UILabel *day7;
+@property (strong, nonatomic) IBOutlet UILabel *timeShow; 
 
 @property (strong, nonatomic) IBOutlet UITableView * _tableview;
 @property (strong, nonatomic) IBOutlet MKMapView *sheduleMap;
 
 // bus alarm
 @property (strong, nonatomic) IBOutlet UIButton *_scopeBtn;
+@property (strong, nonatomic) IBOutlet UILabel *_destinationName;
 @property (strong, nonatomic) IBOutlet UIButton *startBusAlarmBtn;
 @property (strong, nonatomic) IBOutlet UIView *startBusAlarmBtnBackground;
 @property (strong, nonatomic) IBOutlet MKMapView *busAlarmMap;
@@ -59,7 +45,12 @@
 @property long status;
 
 @property NSArray * _pickerArray;
+@property NSArray * _scopeArray;
 @property Boolean ifBusAlarmOn;
+@property int _busAlarmScope;
+@property CustomAnnotation *_destinationAnnotation;
+@property CustomAnnotation *_tmpAnnotation;
+@property MKCircle *_circle;
 
 - (IBAction)clickCanclePickerView:(id)sender;
 - (IBAction)clickChooseCancle:(id)sender;
