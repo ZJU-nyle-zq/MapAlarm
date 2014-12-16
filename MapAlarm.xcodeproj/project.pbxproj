@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A588A8351A3FEDA2008D7094 /* SetSchedule.m */; };
+		A588A8381A3FF682008D7094 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = A588A8371A3FF682008D7094 /* Back.png */; };
 		A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B31A3F3F750028FD99 /* DIDatepicker.m */; };
 		A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */; };
 		A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		A588A8341A3FEDA2008D7094 /* SetSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchedule.h; sourceTree = "<group>"; };
 		A588A8351A3FEDA2008D7094 /* SetSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchedule.m; sourceTree = "<group>"; };
+		A588A8371A3FF682008D7094 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		A5E238B21A3F3F750028FD99 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
 		A5E238B31A3F3F750028FD99 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		A5E238B41A3F3F750028FD99 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A588A8371A3FF682008D7094 /* Back.png */,
 				FF58D2621A3D825400EA13D5 /* alert_sign.png */,
 				FF58D2631A3D825400EA13D5 /* bus_no_sign.png */,
 				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
@@ -342,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A588A8381A3FF682008D7094 /* Back.png in Resources */,
 				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
 				FF58D2651A3D825400EA13D5 /* bus_no_sign.png in Resources */,
 				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
