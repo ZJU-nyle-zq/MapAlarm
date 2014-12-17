@@ -1052,6 +1052,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_destinationName" destination="who-K9-Qd2" id="Aun-Xm-ezJ"/>
                         <outlet property="_pickViewHolder" destination="ZXh-wl-tzn" id="e5W-tP-3fu"/>
                         <outlet property="_pickerView" destination="bF5-mT-4Wm" id="QW8-WG-23C"/>
                         <outlet property="_scopeBtn" destination="u4n-4i-Uby" id="YUR-oE-1jf"/>
