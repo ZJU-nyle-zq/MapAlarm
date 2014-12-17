@@ -13,8 +13,8 @@
 @interface Alarm : NSObject
 
 @property NSString* event;
-@property int timeStart, timeEnd;
-@property int repeat;
+@property NSDate* date;
+@property NSString* time;
 @property BOOL alert;
 @property NSString* locationName;
 @property float latitude, longitude;

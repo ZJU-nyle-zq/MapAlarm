@@ -61,10 +61,11 @@
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickRightButton:)];
     [buttonRight addGestureRecognizer:singleTap2];
     
-    [self getSheduleList];
-    
     [self initMap];
     [self initBusAlertHolder];
+    NSLog(@"Back");
+    self.App=(AppDelegate*)[[UIApplication sharedApplication]delegate];
+    [self getSheduleList];
 }
 
 - (void) initBusAlertHolder
@@ -100,18 +101,27 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBusAlarmMap:)];
     [_busAlarmMap addGestureRecognizer:tap];
 }
-
 // will do
 // get the shedule list
 - (void) getSheduleList
 {
     _sheduleShowList = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 5; i ++)
+    NSMutableArray *ans;
+    ans=[self.App.coreManager selectData];
+    for (Schedule *info in ans){
+        Alarm * alarm = [[Alarm alloc] init];
+        alarm.event = [[NSString alloc] initWithString: info.event];
+        alarm.time=info.time;
+        alarm.date=info.date;
+        alarm.alert=info.alert;
+        [_sheduleShowList addObject:alarm];
+    }
+    /*for (int i = 0; i < 5; i ++)
     {
         Alarm * alarm = [[Alarm alloc] init];
         alarm.event = [[NSString alloc] initWithString:[NSString stringWithFormat:@"Meeting with Dobe%i", i]];
         [_sheduleShowList addObject:alarm];
-    }
+    }*/
     
     [_tableview reloadData];
 }
@@ -275,6 +285,9 @@
     {
         if (indexPath.row != _sheduleShowList.count)
         {
+            Alarm *alarm = _sheduleShowList[indexPath.row];
+           
+            [self.App.coreManager deleteOneSchedule:alarm.date atTime:alarm.time];
             [_sheduleShowList removeObjectAtIndex:[indexPath row]];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
         }

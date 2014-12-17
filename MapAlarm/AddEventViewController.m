@@ -15,10 +15,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *Event;
 @property (strong, nonatomic) IBOutlet UITextField *TimeChoose;
 @property (strong,nonatomic) UIDatePicker* ScheduleDatePicker;
+@property BOOL alert;
 @end
 
 @implementation AddEventViewController
-@synthesize Year,Month;
+@synthesize Year,Month,alert;
 @synthesize Event=_Event;
 @synthesize TimeChoose=_TimeChoose;
 @synthesize ScheduleDatePicker=_ScheduleDatePicker;
@@ -43,6 +44,9 @@
     //    [self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
+    alert=true;
+    self.App=(AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //self.coreManager = [[CoreDataManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,21 +80,41 @@
     if ([sender.currentTitle isEqualToString:@"On"]){
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
         [sender setTitle:@"Off" forState:UIControlStateNormal];
+        alert=false;
     } else{
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
         [sender setTitle:@"On" forState:UIControlStateNormal];
+        alert=true;
     }
 }
-/*- (IBAction)isClick:(UIButton* )sender {
-    NSLog(@"Here");
-    if ([sender.currentTitle length]){
-        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-        [sender setTitle:@"off" forState:UIControlStateNormal];
-    } else{
-        //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
-        [sender setTitle:@"on" forState:UIControlStateNormal];
+- (IBAction)Save:(UIButton *)sender {
+    NSLog(@"Run here");
+    //    //增
+    [self.App.coreManager insertCoreData:_Event.text atDate:self.datepicker.selectedDate atTime:_TimeChoose.text isAlert:alert];
+    /*NSManagedObjectContext *context = [self managedObjectContext];
+    // Create a new managed object
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
+    [newDevice setValue:self.Event.text forKey:@"event"];
+    [newDevice setValue:self.TimeChoose.text forKey:@"time"];
+    //[newDevice setValue:self.versionTextField.text forKey:@"version"];
+    //[newDevice setValue:self.companyTextField.text forKey:@"company"];
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-}*/
+    
+    [self dismissViewControllerAnimated:YES completion:nil];*/
+}
+- (IBAction)Select:(UIButton *)sender {
+    /*NSMutableArray *ans;
+    ans=[self.App.coreManager selectData];*/
+}
+- (IBAction)Delete:(UIButton *)sender {
+    [self.App.coreManager deleteData];
+}
+
+
 /*
 #pragma mark - Navigation
 
