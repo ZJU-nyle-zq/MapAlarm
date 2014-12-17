@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "CustomAnnotation.h"
 
 @interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -46,6 +47,7 @@
 
 // bus alarm
 @property (strong, nonatomic) IBOutlet UIButton *_scopeBtn;
+@property (strong, nonatomic) IBOutlet UILabel *_destinationName;
 @property (strong, nonatomic) IBOutlet UIButton *startBusAlarmBtn;
 @property (strong, nonatomic) IBOutlet UIView *startBusAlarmBtnBackground;
 @property (strong, nonatomic) IBOutlet MKMapView *busAlarmMap;
@@ -59,7 +61,12 @@
 @property long status;
 
 @property NSArray * _pickerArray;
+@property NSArray * _scopeArray;
 @property Boolean ifBusAlarmOn;
+@property int _busAlarmScope;
+@property CustomAnnotation *_destinationAnnotation;
+@property CustomAnnotation *_tmpAnnotation;
+@property MKCircle *_circle;
 
 - (IBAction)clickCanclePickerView:(id)sender;
 - (IBAction)clickChooseCancle:(id)sender;
