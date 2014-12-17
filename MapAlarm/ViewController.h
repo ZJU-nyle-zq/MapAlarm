@@ -24,23 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *yearShow;
 @property (strong, nonatomic) IBOutlet UILabel *monthShow;
 @property (strong, nonatomic) IBOutlet UILabel *dayShow;
-@property (strong, nonatomic) IBOutlet UILabel *timeShow;
-
-@property (strong, nonatomic) IBOutlet UILabel *week1;
-@property (strong, nonatomic) IBOutlet UILabel *week2;
-@property (strong, nonatomic) IBOutlet UILabel *week3;
-@property (strong, nonatomic) IBOutlet UILabel *week4;
-@property (strong, nonatomic) IBOutlet UILabel *week5;
-@property (strong, nonatomic) IBOutlet UILabel *week6;
-@property (strong, nonatomic) IBOutlet UILabel *week7;
-
-@property (strong, nonatomic) IBOutlet UILabel *day1;
-@property (strong, nonatomic) IBOutlet UILabel *day2;
-@property (strong, nonatomic) IBOutlet UILabel *day3;
-@property (strong, nonatomic) IBOutlet UILabel *day4;
-@property (strong, nonatomic) IBOutlet UILabel *day5;
-@property (strong, nonatomic) IBOutlet UILabel *day6;
-@property (strong, nonatomic) IBOutlet UILabel *day7;
+@property (strong, nonatomic) IBOutlet UILabel *timeShow; 
 
 @property (strong, nonatomic) IBOutlet UITableView * _tableview;
 @property (strong, nonatomic) IBOutlet MKMapView *sheduleMap;

@@ -13,5 +13,6 @@
 @interface Util : NSObject
 
 + (double) getDistance:(double) latitude1 longtitude1: (double) longitude1 : (double) latitude2 : (double) longitude2;
+
 + (double) rad : (double) d;
 @end

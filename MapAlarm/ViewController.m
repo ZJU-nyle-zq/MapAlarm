@@ -11,11 +11,12 @@
 #import "Alarm.h"
 #import "Util.h"
 #import <math.h>
-
+#import "DIDatepicker.h"
 #define STATUS_SCHEDULE 0
 #define STATUS_BUS_ALARM 1
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet DIDatepicker *datepicker;
 
 @end
 
@@ -24,8 +25,6 @@
 @synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder, status , _timer, _tableview;
 
 @synthesize yearShow, monthShow, dayShow, timeShow;
-@synthesize week1, week2, week3, week4, week5, week6, week7;
-@synthesize day1, day2, day3, day4, day5, day6, day7;
 
 @synthesize _sheduleShowList;
 
@@ -39,14 +38,16 @@
     [super viewDidLoad];
     
     _pickerArray = [NSArray arrayWithObjects:@"100m", @"200m", @"300m", @"500m", @"1000m", @"2000m", @"5000m", nil];
+
     _scopeArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:100], [NSNumber numberWithInt:200], [NSNumber numberWithInt:300], [NSNumber numberWithInt:500], [NSNumber numberWithInt:1000], [NSNumber numberWithInt:2000], [NSNumber numberWithInt:5000], nil];
     
     status = STATUS_SCHEDULE;
     
     celsiusLable.font = [UIFont fontWithName:@"Avenir-LightOblique" size:21];
     locationLable.font = [UIFont fontWithName:@"Baskerville-Italic" size:16];
-    [self renderWeekDayFont:@"STHeitiSC-Medium"];
     [self renderDate];
+    [self.datepicker fillDatesFromCurrentDate:365];
+    [self.datepicker selectDateAtIndex:0];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(renderDate) userInfo:nil repeats:YES];
     
@@ -187,13 +188,7 @@
         timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
     }
     
-    [self setWeekDayInfo:week1 :day1 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+0*3600*24]]];
-    [self setWeekDayInfo:week2 :day2 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+1*3600*24]]];
-    [self setWeekDayInfo:week3 :day3 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+2*3600*24]]];
-    [self setWeekDayInfo:week4 :day4 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+3*3600*24]]];
-    [self setWeekDayInfo:week5 :day5 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+4*3600*24]]];
-    [self setWeekDayInfo:week6 :day6 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+2*3600*24]]];
-    [self setWeekDayInfo:week7 :day7 :[calendar components:unitFlags fromDate:[date dateByAddingTimeInterval:+3*3600*24]]];
+
 }
 
 -(void)setWeekDayInfo:(UILabel*)weekShow :(UILabel*)dayShowLable :(NSDateComponents *)comps
@@ -214,18 +209,6 @@
 
 }
 
-//render weekDay Font
--(void)renderWeekDayFont:(NSString*)font
-{
-    int size = 14;
-    week1.font = [UIFont fontWithName:font size:size];
-    week2.font = [UIFont fontWithName:font size:size];
-    week3.font = [UIFont fontWithName:font size:size];
-    week4.font = [UIFont fontWithName:font size:size];
-    week5.font = [UIFont fontWithName:font size:size];
-    week6.font = [UIFont fontWithName:font size:size];
-    week7.font = [UIFont fontWithName:font size:size];
-}
 
 -(UIColor*) colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alphaValue
 {
@@ -512,4 +495,10 @@
 {
     _pickViewHolder.hidden = false;
 }
+
+
+
+//update datepicker
+
+
 @end
