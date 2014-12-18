@@ -16,6 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.coreManager = [[CoreDataManager alloc] init];
     // Override point for customization after application launch.
     return YES;
 }
@@ -43,3 +44,6 @@
 }
 
 @end
+
+
+

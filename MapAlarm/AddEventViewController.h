@@ -14,6 +14,7 @@
 #import "Alarm.h"
 
 @interface AddEventViewController : UIViewController<UITextFieldDelegate, MKMapViewDelegate>
+#import "AppDelegate.h"
 @property (strong, nonatomic) IBOutlet UILabel *Year;
 @property (strong, nonatomic) IBOutlet MKMapView *addEventMap;
 @property (strong, nonatomic) IBOutlet UILabel *Month;
@@ -27,6 +28,5 @@
 
 @property Alarm * _alarm;
 
-//@property (strong, nonatomic) IBOutlet UIPickerView *TimePicker;
-//@property NSArray * TimepickerArray;
+@property AppDelegate *App;
 @end

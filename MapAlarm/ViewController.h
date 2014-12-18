@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "CustomAnnotation.h"
+#import "AppDelegate.h"
 
 @interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -39,6 +40,7 @@
 @property (strong, nonatomic) IBOutlet UIView *_pickViewHolder;
 
 
+@property AppDelegate *App;
 @property (strong, nonatomic) CLLocationManager *_locationManager;
 @property NSMutableArray * _sheduleShowList;
 @property NSTimer * _timer;

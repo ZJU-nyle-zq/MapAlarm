@@ -16,10 +16,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *Event;
 @property (strong, nonatomic) IBOutlet UITextField *TimeChoose;
 @property (strong,nonatomic) UIDatePicker* ScheduleDatePicker;
+@property BOOL alert;
 @end
 
 @implementation AddEventViewController
-@synthesize Year,Month;
+@synthesize Year,Month,alert;
 @synthesize Event=_Event;
 @synthesize TimeChoose=_TimeChoose;
 @synthesize ScheduleDatePicker=_ScheduleDatePicker;
@@ -54,6 +55,10 @@
     [self initMap];
     
     [self renderAlarm];
+    
+    alert=true;
+    self.App=(AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //self.coreManager = [[CoreDataManager alloc] init];
 }
 
 // will do
@@ -98,17 +103,17 @@
     
     _tmpAnnotation = [[CustomAnnotation alloc] initWithCoordinate:touchMapCoordinate];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sure change destination?"
+    UIAlertView *alertVIew = [[UIAlertView alloc] initWithTitle:@"Sure change destination?"
                                                     message:astring
                                                    delegate:self
                                           cancelButtonTitle:@"Cancle"
                                           otherButtonTitles:@"Ok" ,nil];
     
-    alert.tag = 1;
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    UITextField *textField = [alert textFieldAtIndex:0];
+    alertVIew.tag = 1;
+    alertVIew.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *textField = [alertVIew textFieldAtIndex:0];
     textField.placeholder = @"  Input the name of destination";
-    [alert show];
+    [alertVIew show];
 }
 
 - (void) alertView:(UIAlertView*) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -174,21 +179,52 @@
     if ([sender.currentTitle isEqualToString:@"On"]){
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
         [sender setTitle:@"Off" forState:UIControlStateNormal];
+        alert=false;
     } else{
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
         [sender setTitle:@"On" forState:UIControlStateNormal];
+        alert=true;
     }
 }
 
+- (IBAction)Save:(UIButton *)sender {
+    NSLog(@"Run here");
+    //    //增
+    [self.App.coreManager insertCoreData:_Event.text atDate:self.datepicker.selectedDate atTime:_TimeChoose.text isAlert:alert];
+    /*NSManagedObjectContext *context = [self managedObjectContext];
+    // Create a new managed object
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
+    [newDevice setValue:self.Event.text forKey:@"event"];
+    [newDevice setValue:self.TimeChoose.text forKey:@"time"];
+    //[newDevice setValue:self.versionTextField.text forKey:@"version"];
+    //[newDevice setValue:self.companyTextField.text forKey:@"company"];
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];*/
+}
+- (IBAction)Select:(UIButton *)sender {
+    /*NSMutableArray *ans;
+    ans=[self.App.coreManager selectData];*/
+}
+- (IBAction)Delete:(UIButton *)sender {
+    [self.App.coreManager deleteData];
+}
+
+
+
 - (IBAction)finishAddEvent:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                     message:nil
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil ,nil];
-    alert.tag = 2;
-    [alert show];
+    alertView.tag = 2;
+    [alertView show];
 }
 
 - (IBAction)returnBack:(id)sender

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5226A361A41CDB700A2A1FB /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A5226A351A41CDB700A2A1FB /* Schedule.m */; };
 		A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A588A8351A3FEDA2008D7094 /* SetSchedule.m */; };
 		A5B90F221A406A9800020A0E /* bus_no_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B90F211A406A9800020A0E /* bus_no_sign.png */; };
 		A5B90F241A406A9E00020A0E /* alert_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B90F231A406A9E00020A0E /* alert_sign.png */; };
@@ -15,6 +16,8 @@
 		A5E238B91A3F3F750028FD99 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B51A3F3F750028FD99 /* DIDatepickerDateView.m */; };
 		A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */; };
 		A5E238BD1A3F3FAC0028FD99 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */; };
+		A5FEE6F61A4159B900626C7D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5FEE6F41A4159B900626C7D /* Model.xcdatamodeld */; };
+		A5FEE7371A418AD600626C7D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FEE7361A418AD600626C7D /* CoreDataManager.m */; };
 		FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */; };
 		FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */; };
 		FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D25E1A3D662400EA13D5 /* MapKit.framework */; };
@@ -54,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5226A341A41CDB700A2A1FB /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		A5226A351A41CDB700A2A1FB /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		A588A8341A3FEDA2008D7094 /* SetSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchedule.h; sourceTree = "<group>"; };
 		A588A8351A3FEDA2008D7094 /* SetSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchedule.m; sourceTree = "<group>"; };
 		A5B90F211A406A9800020A0E /* bus_no_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_no_sign.png; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 		A5E238B71A3F3F750028FD99 /* SelectedAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedAreaView.m; sourceTree = "<group>"; };
 		A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		A5FEE6F51A4159B900626C7D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A5FEE7351A418AD600626C7D /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		A5FEE7361A418AD600626C7D /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		FF58D2551A3D3A9800EA13D5 /* SheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheduleCell.h; sourceTree = "<group>"; };
 		FF58D2561A3D3A9800EA13D5 /* SheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheduleCell.m; sourceTree = "<group>"; };
 		FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_sign.png; sourceTree = "<group>"; };
@@ -168,19 +176,24 @@
 		FF59B3D41A37D9C700353F8E /* MapAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				A588A8341A3FEDA2008D7094 /* SetSchedule.h */,
-				A588A8351A3FEDA2008D7094 /* SetSchedule.m */,
 				A5E238B11A3F3F570028FD99 /* DatePicker */,
 				FF8458241A3F047600D27C92 /* Util */,
 				FF84581F1A3EA2B200D27C92 /* CustomAnnotation */,
 				FF58D2541A3D3A7700EA13D5 /* SheduleCell */,
 				FF7511981A398EC100821DA4 /* Alarm */,
+				A588A8341A3FEDA2008D7094 /* SetSchedule.h */,
+				A588A8351A3FEDA2008D7094 /* SetSchedule.m */,
 				FF59B3D91A37D9C700353F8E /* AppDelegate.h */,
 				FF59B3DA1A37D9C700353F8E /* AppDelegate.m */,
 				FF59B3DC1A37D9C700353F8E /* ViewController.h */,
 				FF59B3DD1A37D9C700353F8E /* ViewController.m */,
+				A5FEE6F41A4159B900626C7D /* Model.xcdatamodeld */,
+				A5226A341A41CDB700A2A1FB /* Schedule.h */,
+				A5226A351A41CDB700A2A1FB /* Schedule.m */,
 				A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */,
 				A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */,
+				A5FEE7351A418AD600626C7D /* CoreDataManager.h */,
+				A5FEE7361A418AD600626C7D /* CoreDataManager.m */,
 				FF59B3DF1A37D9C700353F8E /* Main.storyboard */,
 				FF59B3E21A37D9C700353F8E /* Images.xcassets */,
 				FF59B3E41A37D9C700353F8E /* LaunchScreen.xib */,
@@ -383,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5226A361A41CDB700A2A1FB /* Schedule.m in Sources */,
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
 				FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */,
 				A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */,
@@ -394,6 +408,8 @@
 				A5E238BA1A3F3F750028FD99 /* SelectedAreaView.m in Sources */,
 				FF8458231A3F047000D27C92 /* Util.m in Sources */,
 				FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */,
+				A5FEE7371A418AD600626C7D /* CoreDataManager.m in Sources */,
+				A5FEE6F61A4159B900626C7D /* Model.xcdatamodeld in Sources */,
 				FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +615,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A5FEE6F41A4159B900626C7D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A5FEE6F51A4159B900626C7D /* Model.xcdatamodel */,
+			);
+			currentVersion = A5FEE6F51A4159B900626C7D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF59B3CA1A37D9C700353F8E /* Project object */;
 }

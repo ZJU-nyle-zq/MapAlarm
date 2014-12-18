@@ -10,13 +10,12 @@
 
 @implementation Alarm
 
-@synthesize event, timeEnd, timeStart, repeat, alert, latitude, longitude, locationName;
+@synthesize event, time,date, alert, latitude, longitude, locationName;
 
 -(id)init
 {
     if(self=[super init])
     {
-        repeat = REPEAT_TYPE_NO_REPEAT;
         alert = false;
     }
     return self;
