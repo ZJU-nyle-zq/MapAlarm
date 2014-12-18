@@ -11,6 +11,7 @@
 #import "Alarm.h"
 #import "Util.h"
 #import <math.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "DIDatepicker.h"
 #import "AddEventViewController.h"
 #define STATUS_SCHEDULE 0
@@ -37,6 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self registerForRemoteNotification];
     
     _pickerArray = [NSArray arrayWithObjects:@"100m", @"200m", @"300m", @"500m", @"1000m", @"2000m", @"5000m", nil];
 
@@ -130,6 +133,21 @@
     }*/
     
     [_tableview reloadData];
+}
+
+- (void)registerForRemoteNotification
+{
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings
+                                                                             settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
+                                                                             categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
 }
 
 // click "My Shedule"
@@ -283,7 +301,35 @@
     if (distance <= _busAlarmScope)
     {
         NSLog(@"闹铃");
-        [_locationManager stopUpdatingLocation];
+        [self doAlarm];
+    }
+}
+
+- (void) doAlarm
+{
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 震动
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Get up!!!"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil ,nil];
+    alertView.tag = 2;
+    [alertView show];
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    if (notification) {
+        NSDate *currentDate   = [NSDate date];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.fireDate = [currentDate dateByAddingTimeInterval:1.0];
+        notification.repeatInterval = kCFCalendarUnitDay;
+        notification.alertBody = @"Wake up, man";
+        notification.alertAction = NSLocalizedString(@"", nil);
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        NSDictionary *infoDic = [NSDictionary dictionaryWithObject:@"mapAlarm" forKey:@"mapAlarm"];
+        notification.userInfo = infoDic;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
 
@@ -340,6 +386,9 @@
         
         Alarm *alarm = _sheduleShowList[indexPath.row];
         cell.eventLable.text = alarm.event;
+        cell.timeLable.text = alarm.time;
+        cell.locationLable.text = alarm.locationName;
+        
         return cell;
     }
 }
@@ -474,6 +523,48 @@
             
             [self showDestinantionCircle];
         }
+    }
+    else if (alertView.tag == 2)
+    {
+        UIApplication *app = [UIApplication sharedApplication];
+        
+        NSArray *localArr = [app scheduledLocalNotifications];
+        
+        //声明本地通知对象
+        UILocalNotification *localNoti;
+        
+        if (localArr)
+        {
+            for (UILocalNotification *noti in localArr)
+            {
+                NSDictionary *dict = noti.userInfo;
+                if (dict)
+                {
+                    NSString *inKey = [dict objectForKey:@"mapAlarm"];
+                    if ([inKey isEqualToString:inKey])
+                    {
+                        if (localNoti)
+                        {
+                            localNoti = nil;
+                        }
+                        localNoti = noti;
+                        break;
+                    }
+                }
+            }
+            
+            if (!localNoti) {
+                //不存在 初始化
+                localNoti = [[UILocalNotification alloc] init];
+            }
+            
+            if (localNoti ) {
+                //不推送 取消推送
+                [app cancelLocalNotification:localNoti];
+                return;
+            }
+        }
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
 }
 

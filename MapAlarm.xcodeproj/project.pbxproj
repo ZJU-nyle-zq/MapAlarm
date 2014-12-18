@@ -22,7 +22,6 @@
 		FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D25A1A3D4DCB00EA13D5 /* location_sign.png */; };
 		FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D25E1A3D662400EA13D5 /* MapKit.framework */; };
 		FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58D2601A3D663400EA13D5 /* CoreLocation.framework */; };
-		FF58D2641A3D825400EA13D5 /* alert_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF58D2621A3D825400EA13D5 /* alert_sign.png */; };
 		FF59B3D81A37D9C700353F8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3D71A37D9C700353F8E /* main.m */; };
 		FF59B3DB1A37D9C700353F8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DA1A37D9C700353F8E /* AppDelegate.m */; };
 		FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF59B3DD1A37D9C700353F8E /* ViewController.m */; };
@@ -43,7 +42,8 @@
 		FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75119B1A3991AF00821DA4 /* Alarm.m */; };
 		FF8458231A3F047000D27C92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458221A3F047000D27C92 /* Util.m */; };
 		FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458291A3F15D300D27C92 /* CustomAnnotation.m */; };
-		FF8458301A3F179B00D27C92 /* bus_no_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF84582F1A3F179B00D27C92 /* bus_no_sign.png */; };
+		FF8458301A3F179B00D27C92 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		FFC2401C1A427FCB0098E450 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +109,7 @@
 		FF8458221A3F047000D27C92 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Util/Util.m; sourceTree = "<group>"; };
 		FF8458281A3F15D300D27C92 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FF8458291A3F15D300D27C92 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2401C1A427FCB0098E450 /* AudioToolbox.framework in Frameworks */,
 				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
 				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
@@ -156,6 +158,7 @@
 		FF59B3C91A37D9C700353F8E = {
 			isa = PBXGroup;
 			children = (
+				FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */,
 				FF58D2601A3D663400EA13D5 /* CoreLocation.framework */,
 				FF58D25E1A3D662400EA13D5 /* MapKit.framework */,
 				FF59B3D41A37D9C700353F8E /* MapAlarm */,
@@ -232,9 +235,6 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				FF84582F1A3F179B00D27C92 /* bus_no_sign.png */,
-				FF58D2621A3D825400EA13D5 /* alert_sign.png */,
-				FF58D25C1A3D5B5600EA13D5 /* icon_add.png */,
 				A5B90F271A406D8100020A0E /* go_back.png */,
 				A5B90F231A406A9E00020A0E /* alert_sign.png */,
 				A5B90F211A406A9800020A0E /* bus_no_sign.png */,
@@ -362,8 +362,7 @@
 			files = (
 				A5B90F241A406A9E00020A0E /* alert_sign.png in Resources */,
 				FF59B4051A385AD000353F8E /* shedule_button_pressed.png in Resources */,
-				FF8458301A3F179B00D27C92 /* bus_no_sign.png in Resources */,
-				FF58D25D1A3D5B5600EA13D5 /* icon_add.png in Resources */,
+				FF8458301A3F179B00D27C92 /* (null) in Resources */,
 				FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */,
 				FF59B4041A385AD000353F8E /* bus_alarm_button_normal.png in Resources */,
 				FF58D25B1A3D4DCB00EA13D5 /* location_sign.png in Resources */,

@@ -13,6 +13,7 @@
 
 @property NSString* event;
 @property NSDate* date;
+
 @property NSString* time;
 @property BOOL alert;
 @property NSString* locationName;
