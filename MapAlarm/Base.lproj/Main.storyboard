@@ -151,18 +151,6 @@
                                     <outlet property="delegate" destination="tpQ-37-A6h" id="BkN-TF-hDv"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-3a-Efn">
-                                <rect key="frame" x="263" y="33" width="46" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Save:" destination="tpQ-37-A6h" eventType="touchUpInside" id="2yr-Vb-ejv"/>
-                                    <action selector="finishAddEvent:" destination="tpQ-37-A6h" eventType="touchUpInside" id="42m-S6-H8K"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VlL-xd-bpX">
                                 <rect key="frame" x="70" y="36" width="46" height="30"/>
                                 <state key="normal" title="选择">
@@ -182,12 +170,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKy-PJ-MdA">
-                                <rect key="frame" x="129" y="36" width="46" height="30"/>
-                                <state key="normal" title="保存">
+                                <rect key="frame" x="258" y="36" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Save:" destination="tpQ-37-A6h" eventType="touchUpInside" id="FpN-PK-j7g"/>
+                                    <action selector="Save:" destination="tpQ-37-A6h" eventType="touchUpInside" id="apH-lQ-xbg"/>
                                 </connections>
                             </button>
                         </subviews>

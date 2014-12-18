@@ -240,26 +240,6 @@
 - (IBAction)Delete:(UIButton *)sender {
     [self.App.coreManager deleteData];
 }
-
-- (IBAction)finishAddEvent:(id)sender
-{
-    NSLog(@"Run here");
-    NSString* sdate;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
-    sdate=[formatter stringFromDate:self.datepicker.selectedDate];
-    //    //增
-    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude isAlert:alert];
-
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
-                                                    message:nil
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil ,nil];
-    alertView.tag = 2;
-    [alertView show];
-}
-
 - (IBAction)returnBack:(id)sender
 {
         [self dismissViewControllerAnimated:YES completion:nil];

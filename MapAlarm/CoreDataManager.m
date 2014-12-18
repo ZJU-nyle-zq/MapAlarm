@@ -41,47 +41,25 @@
 //选择数据,根据程序需要必须日期一致
 -(NSMutableArray*)selectDataAtDate:(NSString*)date
 {
-    //创建取回数据请求
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    // 设置要检索哪种类型的实体对象，设置请求实体（选择哪个表）
     NSEntityDescription *entity = [NSEntityDescription entityForName:TableName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    
-    // 限定查询结果的数量
     [fetchRequest setFetchLimit:50];
-    
-    // 查询的偏移量
     [fetchRequest setFetchOffset:0];
-    
-    // 排序(根据title排序)
+   
     NSMutableArray *sortDescriptors = [NSMutableArray array];
     [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES]];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // 查询条件（相当于sqlite中的查询条件，具体格式参考苹果文档）https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Predicates/Articles/pCreating.html
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date=%@",date];
     [fetchRequest setPredicate:predicate];
-    
-    // 分页
     [fetchRequest setFetchBatchSize:50];
-    
-    //查询的字段，一般不需要
-    // [fetchRequest setPropertiesToFetch:[NSArray arrayWithObjects:@"title", @"newsid", nil]];
-    
-    // 这个是啥意思？
-    // [fetchRequest setReturnsObjectsAsFaults:YES];
     
     NSError *error;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     NSMutableArray *resultArray = [NSMutableArray array];
     
-    // 执行获取数据请求，返回数组
-    //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //[dateFormatter setDateFormat:@"HH:mm"];
     for (Schedule *info in fetchedObjects) {
-        //NSString *dayInWeekFormattedString = [dateFormatter stringFromDate:info.time];
-        //NSLog(@"Event:%@，time:%@,alert:%@", info.event,info.time,info.alert);
         [resultArray addObject:info];
     }
     return resultArray;
@@ -110,28 +88,16 @@
     
     // 分页
     [fetchRequest setFetchBatchSize:50];
-    
-    //查询的字段，一般不需要
-    // [fetchRequest setPropertiesToFetch:[NSArray arrayWithObjects:@"title", @"newsid", nil]];
-    
-    // 这个是啥意思？
-    // [fetchRequest setReturnsObjectsAsFaults:YES];
-    
     NSError *error;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     NSMutableArray *resultArray = [NSMutableArray array];
-    
-    // 执行获取数据请求，返回数组
-    //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //[dateFormatter setDateFormat:@"HH:mm"];
     for (Schedule *info in fetchedObjects) {
-        //NSString *dayInWeekFormattedString = [dateFormatter stringFromDate:info.time];
         NSLog(@"location:%@,Event:%@,date:%@,time:%@,alert:%@,longitude:%@,latitude:%@", info.locationname,info.event,info.date,info.time,info.alert,info.longitude,info.latitude);
         [resultArray addObject:info];
     }
     return resultArray;
 }
--(void)deleteOneSchedule:(NSDate*)date atTime:(NSString*)time{
+-(void)deleteOneSchedule:(NSString*)date atTime:(NSString*)time{
     //创建取回数据请求
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
@@ -151,7 +117,7 @@
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // 查询条件（相当于sqlite中的查询条件，具体格式参考苹果文档）https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Predicates/Articles/pCreating.html
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"time = %@ AND date=%@",time,(NSDate*)date];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"time = %@ AND date=%@",time,date];
     [fetchRequest setPredicate:predicate];
     
     // 分页

@@ -26,7 +26,6 @@
 @property float latitude;
 @property CustomAnnotation *_destinationAnnotation;
 @property CustomAnnotation *_tmpAnnotation;
-- (IBAction)finishAddEvent:(id)sender;
 - (IBAction)returnBack:(id)sender;
 
 @property Alarm * _alarm;

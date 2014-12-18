@@ -31,7 +31,7 @@
 
 -(NSMutableArray*)selectDataAtDate:(NSString*)date;
 //删除某项
--(void)deleteOneSchedule:(NSDate*)date atTime:(NSString*)time;
+-(void)deleteOneSchedule:(NSString*)date atTime:(NSString*)time;
 //删除全部
 - (void)deleteData;
 //更新

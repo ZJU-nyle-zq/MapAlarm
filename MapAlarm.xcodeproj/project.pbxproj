@@ -116,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC2401C1A427FCB0098E450 /* AudioToolbox.framework in Frameworks */,
 				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
 				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
@@ -328,6 +327,7 @@
 				TargetAttributes = {
 					FF59B3D11A37D9C700353F8E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = W3BTHZ992S;
 					};
 					FF59B3EA1A37D9C700353F8E = {
 						CreatedOnToolsVersion = 6.1.1;
