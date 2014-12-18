@@ -325,6 +325,7 @@
             alarm.time=info.time;
             alarm.date=info.date;
             alarm.alert=info.alert;
+            alarm.timestamp=info.timestamp;
             [alarmList addObject:alarm];
         }
     
