@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *addEventMap;
 @property (strong, nonatomic) IBOutlet UILabel *Month;
 @property (strong, nonatomic) IBOutlet UILabel *locationLable;
+@property (strong, nonatomic) IBOutlet UIButton *alertButton;
 
 @property ViewController *parentController;
 @property float longitude;

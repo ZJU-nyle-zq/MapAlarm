@@ -199,6 +199,7 @@
                         <outlet property="TimeChoose" destination="Ilv-gW-96X" id="jOs-z0-KpJ"/>
                         <outlet property="Year" destination="jAK-Ta-PYa" id="PAp-LO-9O8"/>
                         <outlet property="addEventMap" destination="5h1-61-qLn" id="DQz-YJ-Yfo"/>
+                        <outlet property="alertButton" destination="nOQ-mm-Clr" id="zMz-UU-jFP"/>
                         <outlet property="datepicker" destination="jFc-7M-6L3" id="Bey-de-8Gc"/>
                         <outlet property="locationLable" destination="Ggx-L7-ga5" id="a6u-UU-YZc"/>
                         <outlet property="selectedDateLabel" destination="Ed5-7s-ecJ" id="EUw-jt-1rw"/>

@@ -110,7 +110,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBusAlarmMap:)];
     [_busAlarmMap addGestureRecognizer:tap];
 }
-// will do
+
 // get the shedule list
 - (void) getSheduleList
 {
@@ -232,9 +232,6 @@
         currentDate=pickdate;
         [self getSheduleList];
     }
-    
-    
-
 }
 
 -(void)setWeekDayInfo:(UILabel*)weekShow :(UILabel*)dayShowLable :(NSDateComponents *)comps
@@ -271,6 +268,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     static BOOL isFirst = true;
+    
+    
     
     if (!_ifBusAlarmOn)
     {
