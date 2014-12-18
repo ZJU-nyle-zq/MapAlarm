@@ -21,13 +21,15 @@
 #pragma mark - 增删改查
 
 //插入数据
--(void)insertCoreData:(NSString*)event atDate:(NSDate*)date atTime:(NSString*)time isAlert:(BOOL)alert
-{
+- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude isAlert:(BOOL)alert{
     NSManagedObjectContext *context = [self managedObjectContext];
     Schedule *newevent = [NSEntityDescription insertNewObjectForEntityForName:TableName inManagedObjectContext:context];
     newevent.event =event;
     newevent.date=date;
     newevent.time=time;
+    newevent.locationname=location;
+    newevent.longitude=[NSNumber numberWithFloat:longitude];
+    newevent.latitude=[NSNumber numberWithFloat:latitude];
     newevent.alert=[NSNumber numberWithBool:alert];
     NSError *error;
         if(![context save:&error]) {
@@ -37,7 +39,7 @@
         }
 }
 //选择数据,根据程序需要必须日期一致
-/*-(NSMutableArray*)selectData:(NSString*)date
+-(NSMutableArray*)selectDataAtDate:(NSString*)date
 {
     //创建取回数据请求
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -79,11 +81,11 @@
     //[dateFormatter setDateFormat:@"HH:mm"];
     for (Schedule *info in fetchedObjects) {
         //NSString *dayInWeekFormattedString = [dateFormatter stringFromDate:info.time];
-        NSLog(@"Event:%@，time:%@,alert:%@", info.event,info.time,info.alert);
+        //NSLog(@"Event:%@，time:%@,alert:%@", info.event,info.time,info.alert);
         [resultArray addObject:info];
     }
     return resultArray;
-}*/
+}
 -(NSMutableArray*)selectData
 {
     //创建取回数据请求
@@ -124,7 +126,7 @@
     //[dateFormatter setDateFormat:@"HH:mm"];
     for (Schedule *info in fetchedObjects) {
         //NSString *dayInWeekFormattedString = [dateFormatter stringFromDate:info.time];
-        NSLog(@"Event:%@，time:%@,alert:%@", info.event,info.time,info.alert);
+        NSLog(@"location:%@,Event:%@,date:%@,time:%@,alert:%@,longitude:%@,latitude:%@", info.locationname,info.event,info.date,info.time,info.alert,info.longitude,info.latitude);
         [resultArray addObject:info];
     }
     return resultArray;

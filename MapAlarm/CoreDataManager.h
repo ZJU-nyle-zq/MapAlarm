@@ -24,10 +24,12 @@
 
 
 //插入数据
-- (void)insertCoreData:(NSString*)event atDate:(NSDate*)date atTime:(NSString*)time isAlert:(BOOL)alert;
+- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude isAlert:(BOOL)alert;
 
 //查询
 -(NSMutableArray*)selectData;
+
+-(NSMutableArray*)selectDataAtDate:(NSString*)date;
 //删除某项
 -(void)deleteOneSchedule:(NSDate*)date atTime:(NSString*)time;
 //删除全部

@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *alertButton;
 
 @property ViewController *parentController;
+@property float longitude;
+@property float latitude;
 @property CustomAnnotation *_destinationAnnotation;
 @property CustomAnnotation *_tmpAnnotation;
 - (IBAction)finishAddEvent:(id)sender;

@@ -41,6 +41,7 @@
 
 
 @property AppDelegate *App;
+@property NSString* currentDate;
 @property (strong, nonatomic) CLLocationManager *_locationManager;
 @property NSMutableArray * _sheduleShowList;
 @property NSTimer * _timer;
