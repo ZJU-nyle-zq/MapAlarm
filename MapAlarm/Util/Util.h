@@ -15,4 +15,10 @@
 + (double) getDistance:(double) latitude1 longtitude1: (double) longitude1 : (double) latitude2 : (double) longitude2;
 
 + (double) rad : (double) d;
+
++ (double) getLongtitude;
++ (double) getLatitude;
++ (void) setLatitude : (double) latitude;
++ (void) setLongtitude : (double) longtitude;
+
 @end

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapAlarm/ViewController.m"
-            timestampString = "440520080.865777"
+            timestampString = "440523684.143841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "187"
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapAlarm/ViewController.m"
-            timestampString = "440520080.865777"
+            timestampString = "440531480.540505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "-busAlarmCheck:longtitude:"
             landmarkType = "5">
          </BreakpointContent>

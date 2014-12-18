@@ -12,6 +12,7 @@
 #import "Util.h"
 #import <math.h>
 #import "DIDatepicker.h"
+#import "AddEventViewController.h"
 #define STATUS_SCHEDULE 0
 #define STATUS_BUS_ALARM 1
 
@@ -94,7 +95,6 @@
     
 
     _busAlarmMap.delegate = self;
-    
     _busAlarmMap.showsUserLocation = YES;
     _busAlarmMap.mapType = MKMapTypeStandard;
     [_busAlarmMap setRegion:region animated:YES];
@@ -233,6 +233,10 @@
     
     NSString *strLat1 = [NSString stringWithFormat:@"%.4f",newLocation.coordinate.latitude];
     NSString *strLng1 = [NSString stringWithFormat:@"%.4f",newLocation.coordinate.longitude];
+    
+    [Util setLatitude:newLocation.coordinate.latitude];
+    [Util setLongtitude:newLocation.coordinate.longitude];
+    
     NSLog(@"Lat: %@  Lng: %@", strLat1, strLng1);
     
     if (isFirst)
@@ -248,6 +252,7 @@
     [self busAlarmCheck:newLocation.coordinate.latitude longtitude:newLocation.coordinate.longitude];
 }
 
+// will do
 - (void) busAlarmCheck: (float) nowLatitude longtitude: (float) nowLongtitude
 {
     if (!_ifBusAlarmOn || _destinationAnnotation == nil || _busAlarmScope == 0)
@@ -263,6 +268,7 @@
     if (distance <= _busAlarmScope)
     {
         NSLog(@"闹铃");
+        [_locationManager stopUpdatingLocation];
     }
 }
 
@@ -331,6 +337,12 @@
 {
     NSLog(@"点击%ld", (long)indexPath.row);
     [_locationManager startUpdatingLocation];
+    
+    AddEventViewController * addEventController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddEventViewController"];
+    addEventController.locationLable.text = @"sdfdsfd";
+    addEventController._alarm = [_sheduleShowList objectAtIndex:indexPath.row];
+    addEventController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:addEventController animated:YES completion:nil];
 }
 
 - (void) ClickScopeChooseBtn
@@ -496,9 +508,15 @@
     _pickViewHolder.hidden = false;
 }
 
-
-
-//update datepicker
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"add-event"])
+    {
+        NSLog(@"!!!!");
+        AddEventViewController *addEventViewController = segue.destinationViewController;
+        addEventViewController.parentController = self;
+    }
+}
 
 
 @end

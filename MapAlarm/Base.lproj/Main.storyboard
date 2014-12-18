@@ -9,7 +9,7 @@
         <!--Add Event View Controller-->
         <scene sceneID="jTB-MC-4tU">
             <objects>
-                <viewController id="tpQ-37-A6h" customClass="AddEventViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEventViewController" id="tpQ-37-A6h" customClass="AddEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ycB-oZ-IMF"/>
                         <viewControllerLayoutGuide type="bottom" id="Owd-Bm-c07"/>
@@ -99,6 +99,12 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="choose on map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggx-L7-ga5">
+                                        <rect key="frame" x="113" y="10" width="201" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -131,12 +137,29 @@
                                 <rect key="frame" x="0.0" y="185" width="320" height="199"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-RV-shK">
-                                <rect key="frame" x="4" y="28" width="39" height="38"/>
+                                <rect key="frame" x="4" y="29" width="33" height="32"/>
                                 <state key="normal" title="Back" image="go_back.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="HuR-eE-JC4"/>
+                                    <action selector="returnBack:" destination="tpQ-37-A6h" eventType="touchUpInside" id="Pov-cI-oTO"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5h1-61-qLn">
+                                <rect key="frame" x="16" y="392" width="293" height="156"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tpQ-37-A6h" id="BkN-TF-hDv"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-3a-Efn">
+                                <rect key="frame" x="263" y="33" width="46" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishAddEvent:" destination="tpQ-37-A6h" eventType="touchUpInside" id="42m-S6-H8K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,10 +167,11 @@
                     </view>
                     <connections>
                         <outlet property="Event" destination="VOe-bQ-2Ih" id="HB4-T8-lzu"/>
-                        <outlet property="Month" destination="lIg-sN-E4h" id="jOa-KS-Ebi"/>
                         <outlet property="TimeChoose" destination="Ilv-gW-96X" id="jOs-z0-KpJ"/>
                         <outlet property="Year" destination="jAK-Ta-PYa" id="PAp-LO-9O8"/>
+                        <outlet property="addEventMap" destination="5h1-61-qLn" id="DQz-YJ-Yfo"/>
                         <outlet property="datepicker" destination="jFc-7M-6L3" id="Bey-de-8Gc"/>
+                        <outlet property="locationLable" destination="Ggx-L7-ga5" id="a6u-UU-YZc"/>
                         <outlet property="selectedDateLabel" destination="Ed5-7s-ecJ" id="EUw-jt-1rw"/>
                     </connections>
                 </viewController>
@@ -359,7 +383,7 @@
                                                                     <outlet property="timeLable" destination="5tj-wQ-o9g" id="7Hy-nO-tfU"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="sheduleAddCell" id="yqz-mL-fOl">
+                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sheduleAddCell" id="yqz-mL-fOl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yqz-mL-fOl" id="27T-4C-hYD">
@@ -409,7 +433,7 @@
                                                                 </tableViewCellContentView>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <connections>
-                                                                    <segue destination="tpQ-37-A6h" kind="modal" id="Ftf-6a-Q5U"/>
+                                                                    <segue destination="tpQ-37-A6h" kind="modal" identifier="add-event" modalTransitionStyle="flipHorizontal" id="Ftf-6a-Q5U"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>

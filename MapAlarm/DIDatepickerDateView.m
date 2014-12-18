@@ -129,7 +129,7 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 {
     [super setHighlighted:highlighted];
     if (highlighted) {
-        self.selectionView.alpha = self.isSelected ? 1 : .5;
+        self.selectionView.alpha = self.isSelected ? 1 : 0.5;
     } else {
         self.selectionView.alpha = self.isSelected ? 1 : 0;
     }

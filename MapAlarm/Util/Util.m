@@ -11,6 +11,9 @@
 
 @implementation Util
 
+static double _latitude;
+static double _longtigutde;
+
 + (double) getDistance :(double) latitude1 longtitude1: (double) longitude1 : (double) latitude2 : (double) longitude2
 {
     double radLat1 = [self rad:latitude1];
@@ -27,6 +30,26 @@
 + (double) rad : (double) d
 {
      return d * M_PI / 180.0;
+}
+
++ (double) getLatitude
+{
+    return _latitude;
+}
+
++ (double) getLongtitude
+{
+    return _longtigutde;
+}
+
++ (void) setLatitude:(double)latitude
+{
+    _latitude = latitude;
+}
+
++ (void) setLongtitude:(double)longtitude
+{
+    _longtigutde = longtitude;
 }
 
 @end

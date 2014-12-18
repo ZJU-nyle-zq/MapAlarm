@@ -7,10 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "ViewController.h"
+#import "CustomAnnotation.h"
+#import "Alarm.h"
 
-@interface AddEventViewController : UIViewController<UITextFieldDelegate>
+@interface AddEventViewController : UIViewController<UITextFieldDelegate, MKMapViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *Year;
+@property (strong, nonatomic) IBOutlet MKMapView *addEventMap;
 @property (strong, nonatomic) IBOutlet UILabel *Month;
+@property (strong, nonatomic) IBOutlet UILabel *locationLable;
+
+@property ViewController *parentController;
+@property CustomAnnotation *_destinationAnnotation;
+@property CustomAnnotation *_tmpAnnotation;
+- (IBAction)finishAddEvent:(id)sender;
+- (IBAction)returnBack:(id)sender;
+
+@property Alarm * _alarm;
+
 //@property (strong, nonatomic) IBOutlet UIPickerView *TimePicker;
 //@property NSArray * TimepickerArray;
 @end

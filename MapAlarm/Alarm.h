@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #define REPEAT_TYPE_NO_REPEAT 0
 
-
 @interface Alarm : NSObject
 
 @property NSString* event;
@@ -17,6 +16,7 @@
 @property int repeat;
 @property BOOL alert;
 @property NSString* locationName;
+
 @property float latitude, longitude;
 
 @end
