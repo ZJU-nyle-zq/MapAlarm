@@ -14,9 +14,10 @@
 @dynamic alert;
 @dynamic date;
 @dynamic event;
-@dynamic longitude;
-@dynamic locationname;
-@dynamic time;
 @dynamic latitude;
+@dynamic locationname;
+@dynamic longitude;
+@dynamic time;
+@dynamic timestamp;
 
 @end
