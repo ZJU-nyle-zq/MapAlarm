@@ -24,6 +24,7 @@
 @synthesize Event=_Event;
 @synthesize TimeChoose=_TimeChoose;
 @synthesize ScheduleDatePicker=_ScheduleDatePicker;
+@synthesize alertButton = _alertButton;
 @synthesize addEventMap = _addEventMap, locationLable = _locationLable;
 @synthesize _tmpAnnotation = _tmpAnnotation, _destinationAnnotation = _destinationAnnotation;
 @synthesize _alarm = _alarm;
@@ -61,13 +62,22 @@
     //self.coreManager = [[CoreDataManager alloc] init];
 }
 
-// will do
 // render alarm if alarm exist
 - (void) renderAlarm
 {
     if (_alarm != nil)
     {
+        _Event.text = _alarm.event;
+        _TimeChoose.text = _alarm.time;
+        _locationLable.text = _alarm.locationName;
+        [_alertButton setTitle:_alarm.alert ? @"On" : @"Off" forState:UIControlStateNormal];
         
+        // render annotation
+        CLLocationCoordinate2D mapCoordinate;
+        mapCoordinate.latitude = _alarm.latitude;
+        mapCoordinate.longitude = _alarm.longitude;
+        _destinationAnnotation = [[CustomAnnotation alloc] initWithCoordinate:mapCoordinate];
+        [_addEventMap addAnnotation:_destinationAnnotation];
     }
 }
 
