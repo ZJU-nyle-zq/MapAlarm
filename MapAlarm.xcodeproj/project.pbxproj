@@ -108,6 +108,7 @@
 		FF8458221A3F047000D27C92 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Util/Util.m; sourceTree = "<group>"; };
 		FF8458281A3F15D300D27C92 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FF8458291A3F15D300D27C92 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2401C1A427FCB0098E450 /* AudioToolbox.framework in Frameworks */,
 				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
 				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
@@ -155,6 +157,7 @@
 		FF59B3C91A37D9C700353F8E = {
 			isa = PBXGroup;
 			children = (
+				FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */,
 				FF58D2601A3D663400EA13D5 /* CoreLocation.framework */,
 				FF58D25E1A3D662400EA13D5 /* MapKit.framework */,
 				FF59B3D41A37D9C700353F8E /* MapAlarm */,

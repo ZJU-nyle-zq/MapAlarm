@@ -20,5 +20,4 @@
 + (double) getLatitude;
 + (void) setLatitude : (double) latitude;
 + (void) setLongtitude : (double) longtitude;
-
 @end
