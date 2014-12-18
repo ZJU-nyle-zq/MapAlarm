@@ -191,6 +191,15 @@
     NSLog(@"Run here");
     //    //增
     [self.App.coreManager insertCoreData:_Event.text atDate:self.datepicker.selectedDate atTime:_TimeChoose.text isAlert:alert];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil ,nil];
+    alertView.tag = 2;
+    [alertView show];
+
     /*NSManagedObjectContext *context = [self managedObjectContext];
     // Create a new managed object
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
@@ -206,15 +215,15 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];*/
 }
+
 - (IBAction)Select:(UIButton *)sender {
     /*NSMutableArray *ans;
     ans=[self.App.coreManager selectData];*/
 }
+
 - (IBAction)Delete:(UIButton *)sender {
     [self.App.coreManager deleteData];
 }
-
-
 
 - (IBAction)finishAddEvent:(id)sender
 {

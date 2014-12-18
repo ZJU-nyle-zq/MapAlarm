@@ -70,6 +70,11 @@
     [self getSheduleList];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self getSheduleList];
+}
+
 - (void) initBusAlertHolder
 {
     _ifBusAlarmOn = false;
