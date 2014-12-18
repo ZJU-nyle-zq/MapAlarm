@@ -223,13 +223,16 @@
         tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld PM", minute]];
         timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
     }
+    
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
     pickdate=[formatter stringFromDate:self.datepicker.selectedDate];
-    if (currentDate==nil){
+    if (currentDate==nil)
+    {
         formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
         currentDate=pickdate;
     }
-    else if (![currentDate isEqualToString:pickdate]){
+    else if (![currentDate isEqualToString:pickdate])
+    {
         currentDate=pickdate;
         [self getSheduleList];
     }
@@ -271,8 +274,11 @@
     static BOOL isFirst = true;
     
     
+    NSMutableArray* todayAlarmList;
     
-    if (!_ifBusAlarmOn)
+    todayAlarmList = [self getTodayAlarmList];
+    
+    if (!_ifBusAlarmOn  && todayAlarmList.count == 0)
     {
         [_locationManager stopUpdatingLocation];
     }
@@ -296,6 +302,76 @@
     }
     
     [self busAlarmCheck:newLocation.coordinate.latitude longtitude:newLocation.coordinate.longitude];
+    [self todaySheduleCheck: newLocation.coordinate.latitude longtitude:newLocation.coordinate.longitude : todayAlarmList];
+}
+
+- (NSMutableArray*) getTodayAlarmList
+{
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+    NSString *pickdate = [formatter stringFromDate:date];
+    
+    NSMutableArray* alarmList = [[NSMutableArray alloc] init];
+        NSMutableArray *ans;
+    
+        ans=[self.App.coreManager selectDataAtDate:pickdate];
+    
+        for (Schedule *info in ans)
+        {
+            Alarm * alarm = [[Alarm alloc] init];
+            alarm.event = [[NSString alloc] initWithString: info.event];
+            alarm.time=info.time;
+            alarm.date=info.date;
+            alarm.alert=info.alert;
+            [alarmList addObject:alarm];
+        }
+    
+    return alarmList;
+}
+
+// 如果一个 Alarm alert 为false那么就不闹铃
+// 如果一个Alarm 与现在距离少于500 也不闹铃
+// 如果长于500，那么以1000m 10分钟 计算提前时间，进行闹铃
+- (void) todaySheduleCheck: (float) nowLatitude longtitude: (float) nowLongtitude : (NSMutableArray*) todayAlarmList
+{
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear|
+    NSCalendarUnitMonth |
+    NSCalendarUnitDay |
+    NSCalendarUnitWeekday |
+    NSCalendarUnitHour |
+    NSCalendarUnitMinute |
+    NSCalendarUnitSecond;
+    comps = [calendar components:unitFlags fromDate:date];
+    long year=[comps year];
+    long month = [comps month];
+    long day = [comps day];
+    long hour = [comps hour];
+    long minute = [comps minute];
+    
+    int count = (int)todayAlarmList.count;
+    for (int i = 0; i < count; i++)
+    {
+        Alarm *alarm = [todayAlarmList objectAtIndex:i];
+        if (alarm.alert == false) continue;
+        
+        double distance = [Util getDistance:nowLatitude longtitude1:nowLongtitude :alarm.latitude :alarm.longitude];
+        if (distance < 500) continue;
+        
+        long hourAlarm = [[alarm.time substringToIndex:2] intValue];
+        long minituAlarm = [[alarm.time substringFromIndex:3] intValue];
+        
+        if ((hourAlarm - hour) * 60 + minituAlarm - minute > distance / 100)
+        {
+            [self doAlarm];
+            alarm.alert = false;
+            return;
+        }
+    }
 }
 
 // will do

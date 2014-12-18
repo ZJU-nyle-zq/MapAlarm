@@ -43,6 +43,7 @@
 		FF8458231A3F047000D27C92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458221A3F047000D27C92 /* Util.m */; };
 		FF84582A1A3F15D300D27C92 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458291A3F15D300D27C92 /* CustomAnnotation.m */; };
 		FF8458301A3F179B00D27C92 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		FFC2401E1A430A870098E450 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2401D1A430A870098E450 /* icon_add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		FF8458281A3F15D300D27C92 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FF8458291A3F15D300D27C92 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FFC2401D1A430A870098E450 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 		FF59B3FB1A37D9EF00353F8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FFC2401D1A430A870098E450 /* icon_add.png */,
 				A5B90F271A406D8100020A0E /* go_back.png */,
 				A5B90F231A406A9E00020A0E /* alert_sign.png */,
 				A5B90F211A406A9800020A0E /* bus_no_sign.png */,
@@ -375,6 +378,7 @@
 				FF59B40D1A388D1600353F8E /* setting.png in Resources */,
 				FF59B3E31A37D9C700353F8E /* Images.xcassets in Resources */,
 				A5B90F221A406A9800020A0E /* bus_no_sign.png in Resources */,
+				FFC2401E1A430A870098E450 /* icon_add.png in Resources */,
 				FF59B4081A387D4D00353F8E /* bus_alarm_button_pressed.png in Resources */,
 				FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */,
 			);
