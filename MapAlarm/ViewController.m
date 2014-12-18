@@ -26,7 +26,7 @@
 @synthesize celsiusLable, locationLable, buttonLeft, buttonRight, busAlarmCliockHolder, mySheduleHolder, status , _timer, _tableview;
 
 @synthesize yearShow, monthShow, dayShow, timeShow;
-
+@synthesize currentDate;
 @synthesize _sheduleShowList;
 
 @synthesize sheduleMap = _sheduleMap;
@@ -46,10 +46,10 @@
     
     celsiusLable.font = [UIFont fontWithName:@"Avenir-LightOblique" size:21];
     locationLable.font = [UIFont fontWithName:@"Baskerville-Italic" size:16];
-    [self renderDate];
+    currentDate=nil;
     [self.datepicker fillDatesFromCurrentDate:365];
     [self.datepicker selectDateAtIndex:0];
-    
+    [self renderDate];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(renderDate) userInfo:nil repeats:YES];
     
     mySheduleHolder.hidden = false;
@@ -67,7 +67,7 @@
     [self initBusAlertHolder];
     NSLog(@"Back");
     self.App=(AppDelegate*)[[UIApplication sharedApplication]delegate];
-    [self getSheduleList];
+    //[self getSheduleList];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -113,7 +113,7 @@
 {
     _sheduleShowList = [[NSMutableArray alloc] init];
     NSMutableArray *ans;
-    ans=[self.App.coreManager selectData];
+    ans=[self.App.coreManager selectDataAtDate:currentDate];
     for (Schedule *info in ans){
         Alarm * alarm = [[Alarm alloc] init];
         alarm.event = [[NSString alloc] initWithString: info.event];
@@ -158,7 +158,8 @@
 
 -(void)renderDate
 {
-    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSString* pickdate;
     NSArray * arrMonth=[NSArray arrayWithObjects:@"January", @"February" ,@"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December", nil];
     NSDate *date = [NSDate date];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -202,6 +203,17 @@
         tmp = [tmp stringByAppendingString:[NSString stringWithFormat:@"%ld PM", minute]];
         timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
     }
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+    pickdate=[formatter stringFromDate:self.datepicker.selectedDate];
+    if (currentDate==nil){
+        formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+        currentDate=pickdate;
+    }
+    else if (![currentDate isEqualToString:pickdate]){
+        currentDate=pickdate;
+        [self getSheduleList];
+    }
+    
     
 
 }

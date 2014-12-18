@@ -27,6 +27,7 @@
 @synthesize addEventMap = _addEventMap, locationLable = _locationLable;
 @synthesize _tmpAnnotation = _tmpAnnotation, _destinationAnnotation = _destinationAnnotation;
 @synthesize _alarm = _alarm;
+@synthesize longitude=_longitude,latitude=_latitude;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,8 +48,8 @@
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     [self.datepicker fillDatesFromCurrentDate:365];
     
-    //    [self.datepicker fillCurrentWeek];
-    //    [self.datepicker fillCurrentMonth];
+    //[self.datepicker fillCurrentWeek];
+    //[self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
     
@@ -98,7 +99,8 @@
     CGPoint touchPoint = [gestureRecognizer locationInView:_addEventMap];// 这里touchPoint是点击的某点在地图控件中的位置
     CLLocationCoordinate2D touchMapCoordinate =
     [_addEventMap convertPoint:touchPoint toCoordinateFromView:_addEventMap];// 这里touchMapCoordinate就是该点的经纬度了
-    
+    _longitude=touchMapCoordinate.longitude;
+    _latitude=touchMapCoordinate.latitude;
     NSString *astring = [[NSString alloc] initWithString:[NSString stringWithFormat:@"destination: %f,%f",touchMapCoordinate.latitude,touchMapCoordinate.longitude]];
     
     _tmpAnnotation = [[CustomAnnotation alloc] initWithCoordinate:touchMapCoordinate];
@@ -189,8 +191,12 @@
 
 - (IBAction)Save:(UIButton *)sender {
     NSLog(@"Run here");
+    NSString* sdate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+    sdate=[formatter stringFromDate:self.datepicker.selectedDate];
     //    //增
-    [self.App.coreManager insertCoreData:_Event.text atDate:self.datepicker.selectedDate atTime:_TimeChoose.text isAlert:alert];
+    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude isAlert:alert];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                         message:nil
@@ -217,8 +223,8 @@
 }
 
 - (IBAction)Select:(UIButton *)sender {
-    /*NSMutableArray *ans;
-    ans=[self.App.coreManager selectData];*/
+    NSMutableArray *ans;
+    ans=[self.App.coreManager selectData];
 }
 
 - (IBAction)Delete:(UIButton *)sender {
@@ -227,6 +233,14 @@
 
 - (IBAction)finishAddEvent:(id)sender
 {
+    NSLog(@"Run here");
+    NSString* sdate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
+    sdate=[formatter stringFromDate:self.datepicker.selectedDate];
+    //    //增
+    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude isAlert:alert];
+
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                     message:nil
                                                    delegate:self

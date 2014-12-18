@@ -2,7 +2,7 @@
 //  Schedule.m
 //  MapAlarm
 //
-//  Created by Bran on 12/17/14.
+//  Created by Bran on 12/18/14.
 //  Copyright (c) 2014 邓永辉. All rights reserved.
 //
 
@@ -14,8 +14,9 @@
 @dynamic alert;
 @dynamic date;
 @dynamic event;
-@dynamic location;
+@dynamic longitude;
 @dynamic locationname;
 @dynamic time;
+@dynamic latitude;
 
 @end
