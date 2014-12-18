@@ -123,6 +123,7 @@
         alarm.time=info.time;
         alarm.date=info.date;
         alarm.alert=info.alert;
+        alarm.locationName=info.locationname;
         [_sheduleShowList addObject:alarm];
     }
     /*for (int i = 0; i < 5; i ++)
@@ -639,6 +640,7 @@
         NSLog(@"!!!!");
         AddEventViewController *addEventViewController = segue.destinationViewController;
         addEventViewController.parentController = self;
+        //addEventViewController._alarm=
     }
 }
 
