@@ -416,16 +416,17 @@
     
     if (distance <= _busAlarmScope)
     {
-        NSLog(@"闹铃");
         [self doAlarm : @"Wake up, man"];
     }
 }
 
 - (void) doAlarm : ( NSString*) alertBoy
 {
+    NSLog(@"闹铃");
+    
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 震动
     
-    if (_alertView == nil) {
+    if (_alertView == nil || ![alertBoy isEqualToString:@"Wake up, man"]) {
         _alertView = [[UIAlertView alloc] initWithTitle:alertBoy
                                                 message:nil
                                                delegate:self
