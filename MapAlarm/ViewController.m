@@ -421,7 +421,7 @@
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 震动
     
-    if (_alertView == nil) {
+    if (_alertView == nil ) {
         _alertView = [[UIAlertView alloc] initWithTitle:alertBoy
                                                 message:nil
                                                delegate:self
