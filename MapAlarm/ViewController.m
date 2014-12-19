@@ -19,7 +19,6 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet DIDatepicker *datepicker;
-
 @end
 
 @implementation ViewController
@@ -318,6 +317,7 @@
 - (NSMutableArray*) getTodayAlarmList
 {
     NSDate *date = [NSDate date];
+    NSLog(@"%@",date);
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
@@ -336,12 +336,14 @@
             alarm.date=info.date;
             alarm.alert=[info.alert boolValue];
             alarm.timestamp=info.timestamp;
+            alarm.locationName=info.locationname;
+            //NSLog(@"%@",alarm.locationName);
             alarm.latitude = [info.latitude floatValue];
             alarm.longitude = [info.longitude floatValue];
             [alarmList addObject:alarm];
         }
     
-    return _sheduleShowList;
+    return alarmList;
 }
 
 // 如果一个 Alarm alert 为false那么就不闹铃
@@ -371,7 +373,7 @@
     {
         
         Alarm *alarm = [todayAlarmList objectAtIndex:i];
-        
+        NSLog(@"%@",alarm.locationName);
         NSLog(@"alert : %@", alarm.alert ? @"yes" : @"no");
         
        
@@ -387,11 +389,13 @@
         
         NSLog(@"hour: %ld, miniute: %ld", hourAlarm, minituAlarm);
         NSLog(@"now: hour: %ld, miniute: %ld", hour, minute);
-        
         if ((hourAlarm - hour) * 60 + minituAlarm - minute < distance / 100)
         {
             [self doAlarm : alarm.event];
-            alarm.alert = false;
+            [self.App.coreManager deleteOneSchedule:alarm.date atTime:alarm.time];
+            //NSLog(@"%@%@%@%@%f%f%@",alarm.event,alarm.date,alarm.time,alarm.locationName,alarm.longitude,alarm.latitude,alarm.timestamp);
+            //NSLog(@"%@",alarm.locationName);
+            [self.App.coreManager insertCoreData:alarm.event atDate:alarm.date atTime:alarm.time atLocation:alarm.locationName atLongitude:alarm.longitude atLatitude:alarm.latitude atTimestamp:alarm.timestamp isAlert:NO];
             return;
         }
     }
