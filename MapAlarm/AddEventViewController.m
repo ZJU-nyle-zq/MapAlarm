@@ -208,6 +208,45 @@
 
 - (IBAction)Save:(UIButton *)sender
 {
+    NSString *event = _Event.text;
+    if (event == nil || [event isEqualToString:@""])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Please Input Event"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil ,nil];
+        alertView.tag = 3;
+        [alertView show];
+        return;
+    }
+    
+    NSString *time = _TimeChoose.text;
+    if (time == nil || [time isEqualToString:@"选择时间"])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Please Choose Time"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil ,nil];
+        alertView.tag = 3;
+        [alertView show];
+        return;
+    }
+    
+    NSString *locationName = _locationLable.text;
+    if (locationName == nil || [locationName isEqualToString:@"choose on map"])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Please Choose location"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil ,nil];
+        alertView.tag = 3;
+        [alertView show];
+        return;
+    }
+    
     NSString* sdate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
@@ -217,10 +256,11 @@
         [self.App.coreManager deleteOneSchedule:_alarm.date atTime:_alarm.time];
     }
     if ([_alertButton.currentTitle isEqualToString:@"On"])
-        alert=true;
+        alert = true;
     else
-        alert=false;
-    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude atTimestamp:self.datepicker.selectedDate isAlert:alert];
+        alert = false;
+    
+    [self.App.coreManager insertCoreData:event atDate:sdate atTime:time atLocation:locationName atLongitude:_longitude atLatitude:_latitude atTimestamp:self.datepicker.selectedDate isAlert:alert];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                         message:nil
                                                        delegate:self
