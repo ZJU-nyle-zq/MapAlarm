@@ -223,6 +223,15 @@
         timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
     }
     
+    NSMutableArray* todayAlarmList;
+    
+    todayAlarmList = [self getTodayAlarmList];
+    
+    if (_ifBusAlarmOn  || todayAlarmList.count != 0)
+    {
+        [_locationManager startUpdatingLocation];
+    }
+    
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
     pickdate=[formatter stringFromDate:self.datepicker.selectedDate];
     if (currentDate==nil)
@@ -366,7 +375,7 @@
         
         if ((hourAlarm - hour) * 60 + minituAlarm - minute > distance / 100)
         {
-            [self doAlarm];
+            [self doAlarm : alarm.event];
             alarm.alert = false;
             return;
         }
@@ -376,7 +385,7 @@
 // will do
 - (void) busAlarmCheck: (float) nowLatitude longtitude: (float) nowLongtitude
 {
-    if (!_ifBusAlarmOn || _destinationAnnotation == nil || _busAlarmScope == 0)
+    if (!_ifBusAlarmOn)
     {
         return;
     }
@@ -389,15 +398,15 @@
     if (distance <= _busAlarmScope)
     {
         NSLog(@"闹铃");
-        [self doAlarm];
+        [self doAlarm : @"Wake up, man"];
     }
 }
 
-- (void) doAlarm
+- (void) doAlarm : ( NSString*) alertBoy
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 震动
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Get up!!!"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Wake up, man"
                                                         message:nil
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
@@ -411,7 +420,7 @@
         notification.timeZone = [NSTimeZone defaultTimeZone];
         notification.fireDate = [currentDate dateByAddingTimeInterval:1.0];
         notification.repeatInterval = kCFCalendarUnitDay;
-        notification.alertBody = @"Wake up, man";
+        notification.alertBody = alertBoy;
         notification.alertAction = NSLocalizedString(@"", nil);
         notification.soundName = UILocalNotificationDefaultSoundName;
         NSDictionary *infoDic = [NSDictionary dictionaryWithObject:@"mapAlarm" forKey:@"mapAlarm"];
@@ -423,6 +432,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"locError:%@", error);
+    [_locationManager startUpdatingLocation];
  }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

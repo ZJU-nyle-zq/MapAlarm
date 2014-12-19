@@ -38,6 +38,7 @@
 		FF59B4091A387D4D00353F8E /* shedule_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B4071A387D4D00353F8E /* shedule_button_normal.png */; };
 		FF59B40B1A38862F00353F8E /* shedule_table_backgound.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40A1A38862F00353F8E /* shedule_table_backgound.png */; };
 		FF59B40D1A388D1600353F8E /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FF59B40C1A388D1600353F8E /* setting.png */; };
+		FF7083B21A43512300CDEEDC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC2401B1A427FCB0098E450 /* AudioToolbox.framework */; };
 		FF7511971A39375400821DA4 /* today_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7511961A39375400821DA4 /* today_sign.png */; };
 		FF75119C1A3991AF00821DA4 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = FF75119B1A3991AF00821DA4 /* Alarm.m */; };
 		FF8458231A3F047000D27C92 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8458221A3F047000D27C92 /* Util.m */; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7083B21A43512300CDEEDC /* AudioToolbox.framework in Frameworks */,
 				FF58D2611A3D663400EA13D5 /* CoreLocation.framework in Frameworks */,
 				FF58D25F1A3D662400EA13D5 /* MapKit.framework in Frameworks */,
 			);
@@ -536,9 +538,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (3VD4M4QEH9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Zhang (3VD4M4QEH9)";
 				INFOPLIST_FILE = MapAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -546,9 +551,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (3VD4M4QEH9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Zhang (3VD4M4QEH9)";
 				INFOPLIST_FILE = MapAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
