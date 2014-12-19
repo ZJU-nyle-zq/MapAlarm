@@ -83,6 +83,7 @@
         CLLocationCoordinate2D mapCoordinate;
         mapCoordinate.latitude = _alarm.latitude;
         mapCoordinate.longitude = _alarm.longitude;
+        
         _destinationAnnotation = [[CustomAnnotation alloc] initWithCoordinate:mapCoordinate];
         [_addEventMap addAnnotation:_destinationAnnotation];
         if (offset>0)
