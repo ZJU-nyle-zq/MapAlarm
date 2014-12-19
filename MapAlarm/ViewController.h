@@ -54,6 +54,7 @@
 @property CustomAnnotation *_destinationAnnotation;
 @property CustomAnnotation *_tmpAnnotation;
 @property MKCircle *_circle;
+@property UIAlertView *alertView;
 
 - (IBAction)clickCanclePickerView:(id)sender;
 - (IBAction)clickChooseCancle:(id)sender;

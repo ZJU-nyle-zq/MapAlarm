@@ -30,7 +30,8 @@
 @synthesize _alarm = _alarm;
 @synthesize longitude=_longitude,latitude=_latitude;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     _ScheduleDatePicker=[[UIDatePicker alloc]init];
@@ -90,7 +91,7 @@
     }
 }
 
-- (void) initMap
+- (void)initMap
 {
     _addEventMap.delegate = self;
     _addEventMap.showsUserLocation = YES;
@@ -136,7 +137,7 @@
     [alertVIew show];
 }
 
-- (void) alertView:(UIAlertView*) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView*) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 1)
     {
@@ -183,7 +184,7 @@
     self.selectedDateLabel.text = [formatter stringFromDate:self.datepicker.selectedDate];
 }
 
--(void) cancelPicker
+- (void)cancelPicker
 {
     if ([self.view endEditing:NO]) {
         //格式化输出选择结果
@@ -207,7 +208,8 @@
     }
 }
 
-- (IBAction)Save:(UIButton *)sender {
+- (IBAction)Save:(UIButton *)sender
+{
     NSLog(@"Run here");
     NSString* sdate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -228,16 +230,26 @@
 
 }
 
-- (IBAction)Select:(UIButton *)sender {
+- (IBAction)Select:(UIButton *)sender
+{
     NSMutableArray *ans;
     ans=[self.App.coreManager selectData];
 }
 
-- (IBAction)Delete:(UIButton *)sender {
+- (IBAction)Delete:(UIButton *)sender
+{
     [self.App.coreManager deleteData];
 }
+
 - (IBAction)returnBack:(id)sender
 {
         [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+// hide textField when click "return"
+- (IBAction)TextField_DidEndOnExit:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
 @end

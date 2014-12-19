@@ -35,6 +35,7 @@
 
 @synthesize _scopeBtn, _destinationName,_pickerView, _pickViewHolder, startBusAlarmBtn = _startBusAlarmBtn, startBusAlarmBtnBackground = _startBusAlarmBtnBackground;
 @synthesize _pickerArray, _scopeArray,ifBusAlarmOn = _ifBusAlarmOn, _destinationAnnotation, _tmpAnnotation, _circle, _busAlarmScope;
+@synthesize alertView = _alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -145,7 +146,8 @@
                                                                              settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
                                                                              categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-    } else
+    }
+    else
     {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
          (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
@@ -224,10 +226,7 @@
         timeShow.text = [NSString stringWithFormat:@"%ld:%ld AM", hour, minute];
     }
     
-    NSMutableArray* todayAlarmList;
-    
-    todayAlarmList = [self getTodayAlarmList];
-    
+    NSMutableArray* todayAlarmList = [self getTodayAlarmList];
     if (_ifBusAlarmOn  || todayAlarmList.count != 0)
     {
         [_locationManager startUpdatingLocation];
@@ -357,9 +356,9 @@
     NSCalendarUnitMinute |
     NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:date];
-    long year=[comps year];
+    /*long year=[comps year];
     long month = [comps month];
-    long day = [comps day];
+    long day = [comps day];*/
     long hour = [comps hour];
     long minute = [comps minute];
     
@@ -408,19 +407,21 @@
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 震动
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Wake up, man"
-                                                        message:nil
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil ,nil];
-    alertView.tag = 2;
-    [alertView show];
+    if (_alertView == nil) {
+        _alertView = [[UIAlertView alloc] initWithTitle:alertBoy
+                                                message:nil
+                                               delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil ,nil];
+        _alertView.tag = 2;
+        [_alertView show];
+    }
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     if (notification) {
-        NSDate *currentDate   = [NSDate date];
+        NSDate *currentDateTmp   = [NSDate date];
         notification.timeZone = [NSTimeZone defaultTimeZone];
-        notification.fireDate = [currentDate dateByAddingTimeInterval:1.0];
+        notification.fireDate = [currentDateTmp dateByAddingTimeInterval:1.0];
         notification.repeatInterval = kCFCalendarUnitDay;
         notification.alertBody = alertBoy;
         notification.alertAction = NSLocalizedString(@"", nil);
@@ -498,7 +499,6 @@
     return 1;
 }
 
-// will do
 // click table view cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -665,6 +665,8 @@
             }
         }
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        _alertView = nil;
     }
 }
 
