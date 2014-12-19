@@ -126,6 +126,8 @@
         alarm.alert=info.alert;
         alarm.locationName=info.locationname;
         alarm.timestamp=info.timestamp;
+        alarm.latitude = [info.latitude floatValue];
+        alarm.longitude = [info.longitude floatValue];
         [_sheduleShowList addObject:alarm];
     }
     /*for (int i = 0; i < 5; i ++)
@@ -297,7 +299,7 @@
     [Util setLatitude:newLocation.coordinate.latitude];
     [Util setLongtitude:newLocation.coordinate.longitude];
     
-    NSLog(@"Lat: %@  Lng: %@", strLat1, strLng1);
+//    NSLog(@"Lat: %@  Lng: %@", strLat1, strLng1);
     
     if (isFirst)
     {
@@ -334,6 +336,8 @@
             alarm.date=info.date;
             alarm.alert=info.alert;
             alarm.timestamp=info.timestamp;
+            alarm.latitude = [info.latitude floatValue];
+            alarm.longitude = [info.longitude floatValue];
             [alarmList addObject:alarm];
         }
     
@@ -365,16 +369,26 @@
     int count = (int)todayAlarmList.count;
     for (int i = 0; i < count; i++)
     {
+        
         Alarm *alarm = [todayAlarmList objectAtIndex:i];
+        
+        NSLog(@"alert : %@", alarm.alert ? @"yes" : @"no");
+        
+       
         if (alarm.alert == false) continue;
         
         double distance = [Util getDistance:nowLatitude longtitude1:nowLongtitude :alarm.latitude :alarm.longitude];
         if (distance < 500) continue;
         
+        NSLog(@"distance : %f", distance);
+        
         long hourAlarm = [[alarm.time substringToIndex:2] intValue];
         long minituAlarm = [[alarm.time substringFromIndex:3] intValue];
         
-        if ((hourAlarm - hour) * 60 + minituAlarm - minute > distance / 100)
+        NSLog(@"hour: %ld, miniute: %ld", hourAlarm, minituAlarm);
+        NSLog(@"now: hour: %ld, miniute: %ld", hour, minute);
+        
+        if ((hourAlarm - hour) * 60 + minituAlarm - minute < distance / 100)
         {
             [self doAlarm : alarm.event];
             alarm.alert = false;
@@ -509,7 +523,10 @@
     if (_sheduleShowList != nil && indexPath.row != _sheduleShowList.count)
     {
         AddEventViewController * addEventController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddEventViewController"];
-        addEventController._alarm = [_sheduleShowList objectAtIndex:indexPath.row];
+        
+        Alarm *alarm = [_sheduleShowList objectAtIndex:indexPath.row];
+        
+        addEventController._alarm = alarm;
         addEventController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:addEventController animated:YES completion:nil];
     }
@@ -573,7 +590,6 @@
 
 - (void)tapBusAlarmMap:(UIGestureRecognizer*)gestureRecognizer
 {
-    
     CGPoint touchPoint = [gestureRecognizer locationInView:_busAlarmMap];// 这里touchPoint是点击的某点在地图控件中的位置
     CLLocationCoordinate2D touchMapCoordinate =
     [_busAlarmMap convertPoint:touchPoint toCoordinateFromView:_busAlarmMap];// 这里touchMapCoordinate就是该点的经纬度了
@@ -593,7 +609,6 @@
     UITextField *textField = [alert textFieldAtIndex:0];
     textField.placeholder = @"  Input the name of destination";
     [alert show];
-
 }
 
 - (void) alertView:(UIAlertView*) alertView clickedButtonAtIndex:(NSInteger)buttonIndex

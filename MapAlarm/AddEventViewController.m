@@ -84,6 +84,7 @@
         CLLocationCoordinate2D mapCoordinate;
         mapCoordinate.latitude = _alarm.latitude;
         mapCoordinate.longitude = _alarm.longitude;
+        
         _destinationAnnotation = [[CustomAnnotation alloc] initWithCoordinate:mapCoordinate];
         [_addEventMap addAnnotation:_destinationAnnotation];
         if (offset>0)
@@ -219,6 +220,8 @@
     if (_alarm){
         [self.App.coreManager deleteOneSchedule:_alarm.date atTime:_alarm.time];
     }
+    
+    
     [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude atTimestamp:self.datepicker.selectedDate isAlert:alert];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                         message:nil
