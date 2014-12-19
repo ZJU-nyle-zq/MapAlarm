@@ -55,10 +55,8 @@
     //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
     [self initMap];
-    
-    [self renderAlarm];
-    
     alert=true;
+    [self renderAlarm];
     self.App=(AppDelegate*)[[UIApplication sharedApplication]delegate];
     //self.coreManager = [[CoreDataManager alloc] init];
 }
@@ -76,8 +74,9 @@
         //[scheduleDate setYear:2014];
         NSLog(@"Schedule Date:%@",_alarm.timestamp);
         NSLog(@"Current Date:%@",self.datepicker.selectedDate);
-        offset=(int)([_alarm.timestamp timeIntervalSince1970]/(24*4600))-(int)([self.datepicker.selectedDate timeIntervalSince1970]/(24*4600));
+        offset=(int)([_alarm.timestamp timeIntervalSince1970]/(24*3600))-(int)([self.datepicker.selectedDate timeIntervalSince1970]/(24*3600));
         NSLog(@"Here%d",offset);
+        NSLog(@"alert%d",_alarm.alert);
         [_alertButton setTitle:_alarm.alert ? @"On" : @"Off" forState:UIControlStateNormal];
         
         // render annotation
@@ -201,17 +200,14 @@
     if ([sender.currentTitle isEqualToString:@"On"]){
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
         [sender setTitle:@"Off" forState:UIControlStateNormal];
-        alert=false;
     } else{
         //[sender setBackgroundImage:[UIImage imageNamed:@"cardback"]  forState:UIControlStateNormal];
         [sender setTitle:@"On" forState:UIControlStateNormal];
-        alert=true;
     }
 }
 
 - (IBAction)Save:(UIButton *)sender
 {
-    NSLog(@"Run here");
     NSString* sdate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
@@ -220,8 +216,10 @@
     if (_alarm){
         [self.App.coreManager deleteOneSchedule:_alarm.date atTime:_alarm.time];
     }
-    
-    
+    if ([_alertButton.currentTitle isEqualToString:@"On"])
+        alert=true;
+    else
+        alert=false;
     [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude atTimestamp:self.datepicker.selectedDate isAlert:alert];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                         message:nil

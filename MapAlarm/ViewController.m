@@ -123,7 +123,7 @@
         alarm.event = [[NSString alloc] initWithString: info.event];
         alarm.time=info.time;
         alarm.date=info.date;
-        alarm.alert=info.alert;
+        alarm.alert=[info.alert boolValue];
         alarm.locationName=info.locationname;
         alarm.timestamp=info.timestamp;
         alarm.latitude = [info.latitude floatValue];
@@ -334,14 +334,14 @@
             alarm.event = [[NSString alloc] initWithString: info.event];
             alarm.time=info.time;
             alarm.date=info.date;
-            alarm.alert=info.alert;
+            alarm.alert=[info.alert boolValue];
             alarm.timestamp=info.timestamp;
             alarm.latitude = [info.latitude floatValue];
             alarm.longitude = [info.longitude floatValue];
             [alarmList addObject:alarm];
         }
     
-    return alarmList;
+    return _sheduleShowList;
 }
 
 // 如果一个 Alarm alert 为false那么就不闹铃
