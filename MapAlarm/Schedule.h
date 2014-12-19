@@ -15,9 +15,10 @@
 @property (nonatomic, retain) NSNumber * alert;
 @property (nonatomic, retain) NSString * date;
 @property (nonatomic, retain) NSString * event;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * locationname;
-@property (nonatomic, retain) NSString * time;
 @property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSString * locationname;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * time;
+@property (nonatomic, retain) NSDate * timestamp;
 
 @end

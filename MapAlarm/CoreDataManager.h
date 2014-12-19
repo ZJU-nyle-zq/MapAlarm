@@ -24,7 +24,7 @@
 
 
 //插入数据
-- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude isAlert:(BOOL)alert;
+- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude atTimestamp:(NSDate*)timestamp isAlert:(BOOL)alert;
 
 //查询
 -(NSMutableArray*)selectData;

@@ -124,6 +124,7 @@
         alarm.date=info.date;
         alarm.alert=info.alert;
         alarm.locationName=info.locationname;
+        alarm.timestamp=info.timestamp;
         [_sheduleShowList addObject:alarm];
     }
     /*for (int i = 0; i < 5; i ++)
@@ -333,6 +334,7 @@
             alarm.time=info.time;
             alarm.date=info.date;
             alarm.alert=info.alert;
+            alarm.timestamp=info.timestamp;
             [alarmList addObject:alarm];
         }
     

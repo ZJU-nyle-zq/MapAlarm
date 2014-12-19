@@ -21,13 +21,14 @@
 #pragma mark - 增删改查
 
 //插入数据
-- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude isAlert:(BOOL)alert{
+- (void)insertCoreData:(NSString*)event atDate:(NSString*)date atTime:(NSString*)time atLocation:(NSString*) location atLongitude:(float)longitude atLatitude:(float)latitude atTimestamp:(NSDate*)timestamp isAlert:(BOOL)alert{
     NSManagedObjectContext *context = [self managedObjectContext];
     Schedule *newevent = [NSEntityDescription insertNewObjectForEntityForName:TableName inManagedObjectContext:context];
     newevent.event =event;
     newevent.date=date;
     newevent.time=time;
     newevent.locationname=location;
+    newevent.timestamp=timestamp;
     newevent.longitude=[NSNumber numberWithFloat:longitude];
     newevent.latitude=[NSNumber numberWithFloat:latitude];
     newevent.alert=[NSNumber numberWithBool:alert];

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5226A391A429A9600A2A1FB /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A5226A381A429A9600A2A1FB /* Schedule.m */; };
+		A50872BA1A431A83003D8F14 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A50872B91A431A83003D8F14 /* Schedule.m */; };
 		A588A8361A3FEDA2008D7094 /* SetSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A588A8351A3FEDA2008D7094 /* SetSchedule.m */; };
 		A5B90F221A406A9800020A0E /* bus_no_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B90F211A406A9800020A0E /* bus_no_sign.png */; };
 		A5B90F241A406A9E00020A0E /* alert_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B90F231A406A9E00020A0E /* alert_sign.png */; };
@@ -58,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5226A371A429A9600A2A1FB /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
-		A5226A381A429A9600A2A1FB /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		A50872B81A431A83003D8F14 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		A50872B91A431A83003D8F14 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		A588A8341A3FEDA2008D7094 /* SetSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchedule.h; sourceTree = "<group>"; };
 		A588A8351A3FEDA2008D7094 /* SetSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchedule.m; sourceTree = "<group>"; };
 		A5B90F211A406A9800020A0E /* bus_no_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_no_sign.png; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 				FF59B3DC1A37D9C700353F8E /* ViewController.h */,
 				FF59B3DD1A37D9C700353F8E /* ViewController.m */,
 				A5FEE6F41A4159B900626C7D /* Model.xcdatamodeld */,
-				A5226A371A429A9600A2A1FB /* Schedule.h */,
-				A5226A381A429A9600A2A1FB /* Schedule.m */,
+				A50872B81A431A83003D8F14 /* Schedule.h */,
+				A50872B91A431A83003D8F14 /* Schedule.m */,
 				A5E238BB1A3F3FAC0028FD99 /* AddEventViewController.h */,
 				A5E238BC1A3F3FAC0028FD99 /* AddEventViewController.m */,
 				A5FEE7351A418AD600626C7D /* CoreDataManager.h */,
@@ -400,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5226A391A429A9600A2A1FB /* Schedule.m in Sources */,
+				A50872BA1A431A83003D8F14 /* Schedule.m in Sources */,
 				FF59B3DE1A37D9C700353F8E /* ViewController.m in Sources */,
 				FF58D2571A3D3A9800EA13D5 /* SheduleCell.m in Sources */,
 				A5E238B81A3F3F750028FD99 /* DIDatepicker.m in Sources */,

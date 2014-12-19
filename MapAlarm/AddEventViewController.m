@@ -53,7 +53,6 @@
     //[self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
     [self.datepicker selectDateAtIndex:0];
-    
     [self initMap];
     
     [self renderAlarm];
@@ -66,11 +65,18 @@
 // render alarm if alarm exist
 - (void) renderAlarm
 {
+    int offset=0;
     if (_alarm != nil)
     {
         _Event.text = _alarm.event;
         _TimeChoose.text = _alarm.time;
         _locationLable.text = _alarm.locationName;
+        //scheduleDate=[formatter dateFromString:_alarm.date];
+        //[scheduleDate setYear:2014];
+        NSLog(@"Schedule Date:%@",_alarm.timestamp);
+        NSLog(@"Current Date:%@",self.datepicker.selectedDate);
+        offset=(int)([_alarm.timestamp timeIntervalSince1970]/(24*4600))-(int)([self.datepicker.selectedDate timeIntervalSince1970]/(24*4600));
+        NSLog(@"Here%d",offset);
         [_alertButton setTitle:_alarm.alert ? @"On" : @"Off" forState:UIControlStateNormal];
         
         // render annotation
@@ -79,6 +85,8 @@
         mapCoordinate.longitude = _alarm.longitude;
         _destinationAnnotation = [[CustomAnnotation alloc] initWithCoordinate:mapCoordinate];
         [_addEventMap addAnnotation:_destinationAnnotation];
+        if (offset>0)
+            [self.datepicker selectDateAtIndex:offset];
     }
 }
 
@@ -206,8 +214,10 @@
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEddMMM" options:0 locale:nil];
     sdate=[formatter stringFromDate:self.datepicker.selectedDate];
     //    //增
-    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude isAlert:alert];
-    
+    if (_alarm){
+        [self.App.coreManager deleteOneSchedule:_alarm.date atTime:_alarm.time];
+    }
+    [self.App.coreManager insertCoreData:_Event.text atDate:sdate atTime:_TimeChoose.text atLocation:_locationLable.text atLongitude:_longitude atLatitude:_latitude atTimestamp:self.datepicker.selectedDate isAlert:alert];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add Event Successful"
                                                         message:nil
                                                        delegate:self
@@ -216,20 +226,6 @@
     alertView.tag = 2;
     [alertView show];
 
-    /*NSManagedObjectContext *context = [self managedObjectContext];
-    // Create a new managed object
-    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
-    [newDevice setValue:self.Event.text forKey:@"event"];
-    [newDevice setValue:self.TimeChoose.text forKey:@"time"];
-    //[newDevice setValue:self.versionTextField.text forKey:@"version"];
-    //[newDevice setValue:self.companyTextField.text forKey:@"company"];
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];*/
 }
 
 - (IBAction)Select:(UIButton *)sender {

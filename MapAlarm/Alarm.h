@@ -16,7 +16,7 @@
 @property NSString* time;
 @property BOOL alert;
 @property NSString* locationName;
-
+@property NSDate* timestamp;
 @property float latitude, longitude;
 
 @end
